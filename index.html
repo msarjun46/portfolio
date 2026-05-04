@@ -7,7 +7,7 @@
     <title>Mohamed Sarjun J | Data Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -1434,48 +1434,46 @@
     </script>
 
     <script>
-        // Wait for EmailJS to load completely
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                if (typeof emailjs !== 'undefined') {
-                    emailjs.init("WkUSYlRDklHfVUAoJ");
-                    console.log('EmailJS initialized successfully');
-                } else {
-                    console.error('EmailJS library not loaded');
-                }
-            }, 500);
-        });
+    // Initialize EmailJS (no delay needed)
+    (function(){
+        emailjs.init("WkUSYlRDklHfVUAoJ");
+    })();
 
-        function handleContactForm(event) {
-            event.preventDefault();
+    function handleContactForm(event) {
+        event.preventDefault();
 
-            if (typeof emailjs === 'undefined') {
-                alert('Email service not ready. Please refresh and try again.');
-                return;
-            }
+        const form = document.getElementById('contactForm');
+        const msg = document.getElementById('formMessage');
 
-            const formData = {
-                from_name: document.querySelector('input[name="from_name"]').value,
-                from_email: document.querySelector('input[name="from_email"]').value,
-                subject: document.querySelector('input[name="subject"]').value,
-                message: document.querySelector('textarea[name="message"]').value
-            };
+        const formData = {
+            from_name: form.from_name.value,
+            from_email: form.from_email.value,
+            subject: form.subject.value,
+            message: form.message.value
+        };
 
-            emailjs.send('service_gqn0pxo', 'template_pbkmjfg', formData)
-                .then(function(response) {
-                    console.log('Email sent successfully!', response);
-                    document.getElementById('successModal').classList.remove('hidden');
-                    document.getElementById('contactForm').reset();
-                })
-                .catch(function(error) {
-                    console.error('Failed to send email:', error);
-                    const msg = document.getElementById('formMessage');
-                    msg.classList.remove('hidden');
-                    msg.className = 'text-sm text-red-400 flex items-center gap-2';
-                    msg.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> Error: ' + (error.text || 'Failed to send');
-                });
-        }
-    </script>
+        // Show loading
+        msg.classList.remove('hidden');
+        msg.className = 'text-sm text-orange-400';
+        msg.innerHTML = 'Sending message...';
+
+        emailjs.send('service_gqn0pxo', 'template_pbkmjfg', formData)
+            .then(function() {
+                // Success
+                document.getElementById('successModal').classList.remove('hidden');
+                form.reset();
+
+                msg.classList.add('hidden');
+            })
+            .catch(function(error) {
+                console.error('Email failed:', error);
+
+                msg.classList.remove('hidden');
+                msg.className = 'text-sm text-red-400';
+                msg.innerHTML = 'Failed to send message. Try again.';
+            });
+    }
+</script>
 </body>
 
 </html>
