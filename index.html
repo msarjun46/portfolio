@@ -1179,7 +1179,7 @@
 
             <!-- Contact Form -->
             <div class="max-w-2xl mx-auto fade-up">
-                <form id="contactForm" class="glass-panel rounded-2xl p-8 md:p-12 space-y-6">
+                <form id="contactForm" onsubmit="handleContactForm(event)" class="glass-panel rounded-2xl p-8 md:p-12 space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label
@@ -1423,51 +1423,32 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Contact Form with EmailJS
-        // Wait for EmailJS to load
-        function initEmailJS() {
-            if (typeof emailjs === 'undefined') {
-                setTimeout(initEmailJS, 100);
-                return;
-            }
+        // EmailJS Configuration
+        emailjs.init("WkUSYlRDklHfVUAoJ");
 
-            emailjs.init("WkUSYlRDklHfVUAoJ");
+        function handleContactForm(event) {
+            event.preventDefault();
 
-            document.getElementById('contactForm').addEventListener('submit', (e) => {
-                e.preventDefault();
-                const msg = document.getElementById('formMessage');
+            const formData = {
+                from_name: document.querySelector('input[name="from_name"]').value,
+                from_email: document.querySelector('input[name="from_email"]').value,
+                subject: document.querySelector('input[name="subject"]').value,
+                message: document.querySelector('textarea[name="message"]').value
+            };
 
-                const formData = {
-                    from_name: document.querySelector('input[name="from_name"]').value,
-                    from_email: document.querySelector('input[name="from_email"]').value,
-                    subject: document.querySelector('input[name="subject"]').value,
-                    message: document.querySelector('textarea[name="message"]').value
-                };
-
-                emailjs.send(
-                    "service_gqn0pxo",
-                    "template_pbkmjfg",
-                    formData
-                ).then(
-                    function(response) {
-                        document.getElementById('successModal').classList.remove('hidden');
-                        e.target.reset();
-                    },
-                    function(error) {
-                        msg.classList.remove('hidden');
-                        msg.className = 'text-sm text-red-400 flex items-center gap-2';
-                        msg.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> Failed to send. Try again.';
-                        setTimeout(() => msg.classList.add('hidden'), 5000);
-                    }
-                );
-            });
-        }
-
-        // Initialize when page loads
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initEmailJS);
-        } else {
-            initEmailJS();
+            emailjs.send('service_gqn0pxo', 'template_pbkmjfg', formData)
+                .then(function(response) {
+                    console.log('Email sent successfully!', response);
+                    document.getElementById('successModal').classList.remove('hidden');
+                    document.getElementById('contactForm').reset();
+                })
+                .catch(function(error) {
+                    console.error('Failed to send email:', error);
+                    const msg = document.getElementById('formMessage');
+                    msg.classList.remove('hidden');
+                    msg.className = 'text-sm text-red-400 flex items-center gap-2';
+                    msg.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> Error: ' + error.text;
+                });
         }
 
         // Navbar scroll effect
