@@ -1254,7 +1254,42 @@
         </div>
     </footer>
 
-    <!-- Back to Top -->
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+        <div class="glass-panel rounded-2xl p-8 md:p-12 max-w-md mx-auto text-center animate-fade-in">
+            <div class="mb-6 flex justify-center">
+                <div class="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+            </div>
+            <h3 class="text-2xl font-semibold mb-3 text-white">Message Sent Successfully!</h3>
+            <p class="text-zinc-400 mb-6 leading-relaxed">
+                Thank you for reaching out. We've received your message and will contact you as soon as possible.
+            </p>
+            <button onclick="document.getElementById('successModal').classList.add('hidden')"
+                class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-lg transition-colors duration-150">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-out;
+        }
+    </style>
     <button id="backToTop"
         class="fixed bottom-8 right-8 w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-orange-400 z-50 shadow-lg shadow-orange-500/20">
         <i data-lucide="arrow-up" class="w-4 h-4"></i>
@@ -1408,11 +1443,8 @@
                 formData
             ).then(
                 function(response) {
-                    msg.classList.remove('hidden');
-                    msg.className = 'text-sm text-green-400 flex items-center gap-2';
-                    msg.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Message sent successfully!';
+                    document.getElementById('successModal').classList.remove('hidden');
                     e.target.reset();
-                    setTimeout(() => msg.classList.add('hidden'), 5000);
                 },
                 function(error) {
                     msg.classList.remove('hidden');
