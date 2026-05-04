@@ -73,10 +73,6 @@
             width: 0%;
         }
 
-        .skill-bar-fill.animated {
-            /* width set via inline style */
-        }
-
         .project-card:hover .project-img {
             transform: scale(1.05);
             opacity: 0.4;
@@ -182,6 +178,7 @@
 
         .gradient-text {
             background: linear-gradient(135deg, #fff 0%, #f97316 100%);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -819,17 +816,18 @@
                         <ul class="space-y-4">
                             <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
                                 <i data-lucide="chevron-right" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
-                                <span>I developed a robust preprocessing pipeline to handle <span
-                                        class="text-white font-medium">100,000+ transaction records</span> across
-                                    multiple payment channels. This work successfully reduced data noise by
-                                    approximately 35%.</span>
+                                <span>I built a preprocessing pipeline prototype handling <span
+                                        class="text-white font-medium">100K+ transaction records</span> across
+                                    three payment channels — AEPS, POS, and UPI — and reduced data noise by approximately
+                                    35% through cleaning and initial feature selection.</span>
                             </li>
                             <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
                                 <i data-lucide="chevron-right" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
-                                <span>I engineered a feature pipeline using PCA and Isolation Forest models. By applying
-                                    SHAP values for better interpretability, I achieved <span
-                                        class="text-white font-medium">70% detection accuracy</span> and reduced manual
-                                    review requirements by 25%.</span>
+                                <span>I designed and experimented with a feature engineering pipeline using PCA for
+                                    dimensionality reduction and Isolation Forest for anomaly detection, applying SHAP
+                                    values for interpretability to achieve about <span
+                                        class="text-white font-medium">70% fraud detection accuracy</span> and reduce
+                                    simulated manual review effort by roughly 25%.</span>
                             </li>
                         </ul>
                         <div class="flex flex-wrap gap-2 mt-6 pt-6 border-t border-white/5">
