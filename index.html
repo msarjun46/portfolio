@@ -1424,36 +1424,51 @@
         });
 
         // Contact Form with EmailJS
-        emailjs.init("WkUSYlRDklHfVUAoJ"); 
+        // Wait for EmailJS to load
+        function initEmailJS() {
+            if (typeof emailjs === 'undefined') {
+                setTimeout(initEmailJS, 100);
+                return;
+            }
 
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const msg = document.getElementById('formMessage');
+            emailjs.init("WkUSYlRDklHfVUAoJ");
 
-            const formData = {
-                from_name: e.target[0].value,
-                from_email: e.target[1].value,
-                subject: e.target[2].value,
-                message: e.target[3].value
-            };
+            document.getElementById('contactForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const msg = document.getElementById('formMessage');
 
-            emailjs.send(
-                "service_gqn0pxo",
-                "template_pbkmjfg",
-                formData
-            ).then(
-                function(response) {
-                    document.getElementById('successModal').classList.remove('hidden');
-                    e.target.reset();
-                },
-                function(error) {
-                    msg.classList.remove('hidden');
-                    msg.className = 'text-sm text-red-400 flex items-center gap-2';
-                    msg.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> Failed to send. Try again.';
-                    setTimeout(() => msg.classList.add('hidden'), 5000);
-                }
-            );
-        });
+                const formData = {
+                    from_name: document.querySelector('input[name="from_name"]').value,
+                    from_email: document.querySelector('input[name="from_email"]').value,
+                    subject: document.querySelector('input[name="subject"]').value,
+                    message: document.querySelector('textarea[name="message"]').value
+                };
+
+                emailjs.send(
+                    "service_gqn0pxo",
+                    "template_pbkmjfg",
+                    formData
+                ).then(
+                    function(response) {
+                        document.getElementById('successModal').classList.remove('hidden');
+                        e.target.reset();
+                    },
+                    function(error) {
+                        msg.classList.remove('hidden');
+                        msg.className = 'text-sm text-red-400 flex items-center gap-2';
+                        msg.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> Failed to send. Try again.';
+                        setTimeout(() => msg.classList.add('hidden'), 5000);
+                    }
+                );
+            });
+        }
+
+        // Initialize when page loads
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initEmailJS);
+        } else {
+            initEmailJS();
+        }
 
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
