@@ -7,6 +7,7 @@
     <title>Mohamed Sarjun J | Data Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -1183,14 +1184,14 @@
                         <div>
                             <label
                                 class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 mb-2 block">Name</label>
-                            <input type="text" required
+                            <input type="text" name="from_name" required
                                 class="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/50 transition-colors"
                                 placeholder="Your name">
                         </div>
                         <div>
                             <label
                                 class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 mb-2 block">Email</label>
-                            <input type="email" required
+                            <input type="email" name="from_email" required
                                 class="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/50 transition-colors"
                                 placeholder="your@email.com">
                         </div>
@@ -1198,14 +1199,14 @@
                     <div>
                         <label
                             class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 mb-2 block">Subject</label>
-                        <input type="text"
+                        <input type="text" name="subject"
                             class="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/50 transition-colors"
                             placeholder="What's this about?">
                     </div>
                     <div>
                         <label
                             class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 mb-2 block">Message</label>
-                        <textarea rows="5" required
+                        <textarea rows="5" name="message" required
                             class="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/50 transition-colors resize-none"
                             placeholder="Tell me about the opportunity..."></textarea>
                     </div>
@@ -1387,17 +1388,39 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Contact Form
+        // Contact Form with EmailJS
+        emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS Public Key
+
         document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const msg = document.getElementById('formMessage');
-            msg.classList.remove('hidden');
-            msg.className = 'text-sm text-green-400 flex items-center gap-2';
-            msg.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Message sent! (Demo — connect to backend for production)';
-            e.target.reset();
-            setTimeout(() => {
-                msg.classList.add('hidden');
-            }, 5000);
+
+            const formData = {
+                from_name: e.target[0].value,
+                from_email: e.target[1].value,
+                subject: e.target[2].value,
+                message: e.target[3].value
+            };
+
+            emailjs.send(
+                "YOUR_SERVICE_ID",      // Replace with your Service ID
+                "YOUR_TEMPLATE_ID",     // Replace with your Template ID
+                formData
+            ).then(
+                function(response) {
+                    msg.classList.remove('hidden');
+                    msg.className = 'text-sm text-green-400 flex items-center gap-2';
+                    msg.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Message sent successfully!';
+                    e.target.reset();
+                    setTimeout(() => msg.classList.add('hidden'), 5000);
+                },
+                function(error) {
+                    msg.classList.remove('hidden');
+                    msg.className = 'text-sm text-red-400 flex items-center gap-2';
+                    msg.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> Failed to send. Try again.';
+                    setTimeout(() => msg.classList.add('hidden'), 5000);
+                }
+            );
         });
 
         // Navbar scroll effect
