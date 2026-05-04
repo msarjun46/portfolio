@@ -1,30 +1,34 @@
 # Data Professional Portfolio | Sarjun J.
 
-A premium, interactive portfolio showcasing my journey from **Data Analyst** to **Data Engineer**, with a deep focus on the **Fintech domain**.
+## Hi, I'm Sarjun J.
 
-##  Overview
-This portfolio is built with **Modern Web Technologies** (Tailwind CSS, Lucide Icons, and Vanilla JS) to highlight my technical skills, data philosophy, and professional growth. It features a custom-built **Learning Roadmap** and a **KPI Metric Strip** that tracks my impact on data quality and business insights.
+I’m a Data Analyst moving toward Data Engineering, with hands-on experience in the fintech domain. I like working with data end-to-end—whether it’s cleaning messy datasets, building pipelines, or turning numbers into something meaningful for business decisions.
 
-##  Technical Stack
-- **Data Engineering**: Apache Kafka, PySpark, Databricks (Medallion Architecture), PostgreSQL, Delta Lake, Snowflake, Docker.
-- **Data Analysis**: SQL (Advanced), Python (Pandas/NumPy), Microsoft Excel.
-- **Visualization**: Power BI, Apache Superset, Matplotlib, Seaborn.
-- **Workflow**: Git/GitHub, Technical Documentation, UAT Testing.
+## About This Project
 
-##  Key Highlights
-- **KPIs Defined**: 20+ custom business metrics.
-- **Metric Parity**: Maintained 70-80% consistency across microservices.
-- **Data Quality**: 100% focus on validation and deduplication logic.
-- **Experience**: 1+ years in the fintech industry handling complex transaction data.
+This repository is my personal data portfolio. It brings together the work I’ve done, the tools I use, and how I approach real-world data problems. My focus is simple: build reliable data systems and extract insights that actually matter.
 
-##  Featured Projects
-1. **UPI Transaction Simulator**: Real-time ETL pipeline processing 400,000+ events using Kafka and PySpark on Databricks.
-2. **Crime Analysis (India)**: Interactive Power BI dashboard analyzing 20 years of government crime data (600,000+ records).
+## Tech Stack
 
-##  Contact
-- **LinkedIn**: [linkedin.com/in/mdsarjun2004](https://www.linkedin.com/in/mdsarjun2004)
-- **Email**: sarjunmd1204@gmail.com
-- **GitHub**: [github.com/msarjun46](https://github.com/msarjun46)
+I work across data engineering and analytics using tools like Kafka, PySpark, Databricks, PostgreSQL, and Snowflake, along with SQL and Python (Pandas, NumPy) for analysis. For visualization, I use Power BI and Apache Superset, supported by tools like Git, Docker, and proper documentation practices.
 
+## Highlights
+
+I’ve defined over 20 business KPIs and worked on maintaining consistency across systems, ensuring data remains accurate and usable. Most of my work revolves around handling fintech transaction data, where data quality and validation are critical.
+
+## Featured Work
+
+-> UPI Transaction Simulator
+A real-time pipeline built using Kafka and PySpark, processing over 400,000 events with a focus on scalability and structured data flow.
+
+-> Crime Data Analysis (India)
+An interactive Power BI dashboard built on 20 years of data (600,000+ records), focused on identifying trends and presenting insights clearly.
+
+## Connect
+LinkedIn: https://www.linkedin.com/in/mdsarjun2004
+GitHub: https://github.com/msarjun46
+Email: sarjunmd1204@gmail.com
+
+⭐ Always open to opportunities in Data Engineering and Analytics.
 ---
 *Created with passion by Sarjun J.*
