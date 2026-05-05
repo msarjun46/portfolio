@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohamed Sarjun J | Data Portfolio</title>
     <meta name="theme-color" content="#09090b">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1400,6 +1401,16 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
+        // Email configuration
+        const EMAIL_CONFIG = {
+            serviceID: 'service_gqn0pxo',
+            templateID: 'template_ydyyu3a',
+            publicKey: 'WkUSYlRDklHfVUAoJ'
+        };
+
+        // Initialize EmailJS
+        emailjs.init(EMAIL_CONFIG.publicKey);
+
         // Contact Form
         function closeSuccessModal() {
             const modal = document.getElementById('successModal');
@@ -1407,17 +1418,61 @@
             modal.style.display = 'none';
         }
 
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
+        function showErrorModal(message) {
             const modal = document.getElementById('successModal');
+            const title = modal.querySelector('h3');
+            const text = modal.querySelector('p');
+            title.textContent = 'Error';
+            title.style.color = '#ef4444';
+            text.textContent = message;
             modal.classList.remove('hidden');
             modal.style.display = 'flex';
-            e.target.reset();
-            
-            // Auto-close modal after 5 seconds
             setTimeout(() => {
                 closeSuccessModal();
+                title.textContent = 'Message Sent!';
+                title.style.color = 'inherit';
+                text.textContent = 'Thank you for reaching out. I\'ll get back to you as soon as possible.';
             }, 5000);
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Sending...';
+
+            const formData = {
+                from_name: form.querySelector('input[type="text"]').value,
+                from_email: form.querySelector('input[type="email"]').value,
+                subject: form.querySelector('input[placeholder="What\'s this about?"]').value,
+                message: form.querySelector('textarea').value
+            };
+
+            emailjs.send(EMAIL_CONFIG.serviceID, EMAIL_CONFIG.templateID, formData)
+                .then(() => {
+                    const modal = document.getElementById('successModal');
+                    const title = modal.querySelector('h3');
+                    const text = modal.querySelector('p');
+                    title.textContent = 'Message Sent!';
+                    title.style.color = 'inherit';
+                    text.textContent = 'Thank you for reaching out. I\'ll get back to you as soon as possible.';
+                    modal.classList.remove('hidden');
+                    modal.style.display = 'flex';
+                    form.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                    setTimeout(() => {
+                        closeSuccessModal();
+                    }, 5000);
+                })
+                .catch((error) => {
+                    console.error('Email error:', error);
+                    showErrorModal('Failed to send message. Please try again.');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                });
         });
 
         // Close modal when clicking outside
