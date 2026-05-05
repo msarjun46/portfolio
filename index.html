@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohamed Sarjun J | Data Portfolio</title>
+    <meta name="theme-color" content="#09090b">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -545,8 +546,7 @@
                 <div class="tab-panel hidden" data-panel="viz">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div class="glass-panel rounded-xl p-6 text-center">
-                            <img src="https://cdn.simpleicons.org/powerbi/F29100" alt="Power BI"
-                                class="w-10 h-10 mx-auto mb-3">
+                            <i data-lucide="bar-chart-3" class="w-10 h-10 mx-auto mb-3 text-orange-500"></i>
                             <div class="text-sm font-medium mb-1">Power BI</div>
                             <div class="text-[10px] text-zinc-500 uppercase tracking-wider">DAX & Modeling</div>
                         </div>
@@ -557,8 +557,7 @@
                             <div class="text-[10px] text-zinc-500 uppercase tracking-wider">BI Visualization</div>
                         </div>
                         <div class="glass-panel rounded-xl p-6 text-center">
-                            <img src="https://cdn.simpleicons.org/microsoftexcel/217346" alt="Excel"
-                                class="w-10 h-10 mx-auto mb-3">
+                            <i data-lucide="file-text" class="w-10 h-10 mx-auto mb-3 text-orange-500"></i>
                             <div class="text-sm font-medium mb-1">Excel</div>
                             <div class="text-[10px] text-zinc-500 uppercase tracking-wider">Pivot & VLOOKUP</div>
                         </div>
@@ -1183,7 +1182,6 @@
                             placeholder="Tell me about the opportunity..."></textarea>
                     </div>
                     <div class="flex flex-col gap-3 sm:flex-row sm:items-center justify-between">
-                        <div id="formMessage" class="text-sm hidden"></div>
                         <button type="submit"
                             class="bg-white text-[#09090b] text-xs font-bold uppercase tracking-wider px-8 py-4 hover:bg-zinc-200 transition-colors duration-150 flex items-center gap-2 ml-auto">
                             Send Message <i data-lucide="send" class="w-4 h-4"></i>
@@ -1193,6 +1191,37 @@
             </div>
         </div>
     </section>
+
+    <!-- Success Popup Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4" style="display: none;">
+        <div class="bg-zinc-900 border border-orange-500/30 rounded-2xl p-8 max-w-sm w-full shadow-2xl" style="box-shadow: 0 0 30px rgba(249, 115, 22, 0.15); animation: modalSlideIn 0.3s ease-out;">
+            <div class="flex justify-center mb-4">
+                <div class="w-16 h-16 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+            </div>
+            <h3 class="text-lg font-semibold text-center mb-2">Message Sent!</h3>
+            <p class="text-sm text-zinc-400 text-center mb-6">Thank you for reaching out. I'll get back to you as soon as possible.</p>
+            <button type="button" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 rounded-lg transition-colors duration-200" onclick="closeSuccessModal()">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <style>
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+    </style>
 
     <!-- FOOTER -->
     <footer class="border-t border-white/5 py-12">
@@ -1372,16 +1401,30 @@
         });
 
         // Contact Form
+        function closeSuccessModal() {
+            const modal = document.getElementById('successModal');
+            modal.classList.add('hidden');
+            modal.style.display = 'none';
+        }
+
         document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            const msg = document.getElementById('formMessage');
-            msg.classList.remove('hidden');
-            msg.className = 'text-sm text-green-400 flex items-center gap-2';
-            msg.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Message sent! (Demo — connect to backend for production)';
+            const modal = document.getElementById('successModal');
+            modal.classList.remove('hidden');
+            modal.style.display = 'flex';
             e.target.reset();
+            
+            // Auto-close modal after 5 seconds
             setTimeout(() => {
-                msg.classList.add('hidden');
+                closeSuccessModal();
             }, 5000);
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('successModal').addEventListener('click', (e) => {
+            if (e.target.id === 'successModal') {
+                closeSuccessModal();
+            }
         });
 
         // Navbar scroll effect
