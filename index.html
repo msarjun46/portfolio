@@ -71,10 +71,6 @@
             width: 0%;
         }
 
-        .skill-bar-fill.animated {
-            /* width set via inline style */
-        }
-
         .project-card:hover .project-img {
             transform: scale(1.05);
             opacity: 0.4;
@@ -180,6 +176,7 @@
 
         .gradient-text {
             background: linear-gradient(135deg, #fff 0%, #f97316 100%);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -223,12 +220,12 @@
                 <a href="#contact"
                     class="bg-white text-[#09090b] text-xs font-bold uppercase tracking-wider px-5 py-3 hover:bg-zinc-200 transition-colors duration-150">Contact</a>
             </div>
-            <button id="mobileMenuBtn" class="md:hidden text-zinc-400 hover:text-white transition-colors">
+            <button id="mobileMenuBtn" type="button" aria-controls="mobileMenu" aria-expanded="false" class="md:hidden text-zinc-400 hover:text-white transition-colors">
                 <i data-lucide="menu" class="w-5 h-5"></i>
             </button>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="md:hidden hidden absolute top-16 left-0 right-0 border-b border-white/5"
+        <div id="mobileMenu" class="md:hidden hidden absolute top-16 left-0 right-0 border-b border-white/5 z-50"
             style="background: rgba(9,9,11,0.95); backdrop-filter: blur(12px);">
             <div class="px-6 py-6 flex flex-col gap-4">
                 <a href="#about"
@@ -1185,7 +1182,7 @@
                             class="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/50 transition-colors resize-none"
                             placeholder="Tell me about the opportunity..."></textarea>
                     </div>
-                    <div class="flex items-center justify-between">
+                    <div class="flex flex-col gap-3 sm:flex-row sm:items-center justify-between">
                         <div id="formMessage" class="text-sm hidden"></div>
                         <button type="submit"
                             class="bg-white text-[#09090b] text-xs font-bold uppercase tracking-wider px-8 py-4 hover:bg-zinc-200 transition-colors duration-150 flex items-center gap-2 ml-auto">
@@ -1243,15 +1240,26 @@
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         let menuOpen = false;
+        function updateMenuState(open) {
+            menuOpen = open;
+            mobileMenu.classList.toggle('hidden', !open);
+            mobileMenuBtn.setAttribute('aria-expanded', open.toString());
+        }
+
         mobileMenuBtn.addEventListener('click', () => {
-            menuOpen = !menuOpen;
-            mobileMenu.classList.toggle('hidden');
+            updateMenuState(!menuOpen);
         });
+
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuOpen = false;
+                updateMenuState(false);
             });
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768 && menuOpen) {
+                updateMenuState(false);
+            }
         });
 
         // Scroll Animations (Intersection Observer)
