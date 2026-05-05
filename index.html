@@ -1151,8 +1151,7 @@
 
             <!-- Contact Form -->
             <div class="max-w-2xl mx-auto fade-up">
-                <form id="contactForm" class="glass-panel rounded-2xl p-8 md:p-12 space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <form id="contactForm" autocomplete="off" class="glass-panel rounded-2xl p-8 md:p-12 space-y-6">                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label
                                 class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 mb-2 block">Name</label>
@@ -1404,7 +1403,7 @@
         // Email configuration
         const EMAIL_CONFIG = {
             serviceID: 'service_gqn0pxo',
-            templateID: 'template_ydyyu3a',
+            templateID: 'template_pbkmjfg',
             publicKey: 'WkUSYlRDklHfVUAoJ'
         };
 
@@ -1442,12 +1441,11 @@
             const originalText = submitBtn.innerHTML;
             submitBtn.disabled = true;
             submitBtn.innerHTML = 'Sending...';
-
             const formData = {
-                from_name: form.querySelector('input[type="text"]').value,
-                from_email: form.querySelector('input[type="email"]').value,
-                subject: form.querySelector('input[placeholder="What\'s this about?"]').value,
-                message: form.querySelector('textarea').value
+                from_name: form.querySelector('input[name="from_name"]').value.trim(),
+                from_email: form.querySelector('input[name="from_email"]').value.trim(),
+                subject: form.querySelector('input[placeholder="What\'s this about?"]').value.trim(),
+                message: form.querySelector('textarea[name="message"]').value.trim()
             };
 
             emailjs.send(EMAIL_CONFIG.serviceID, EMAIL_CONFIG.templateID, formData)
