@@ -7,8 +7,6 @@
     <title>Mohamed Sarjun J | Data Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="icon" type="image/png" href="./assets/Sarjun.png">
-   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -71,6 +69,10 @@
         .skill-bar-fill {
             transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
             width: 0%;
+        }
+
+        .skill-bar-fill.animated {
+            /* width set via inline style */
         }
 
         .project-card:hover .project-img {
@@ -178,7 +180,6 @@
 
         .gradient-text {
             background: linear-gradient(135deg, #fff 0%, #f97316 100%);
-            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -269,15 +270,15 @@
                 </p>
                 <div class="flex flex-wrap gap-3 mb-12">
                     <span
-                        class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2">Databricks</span>
+                        class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2">Python</span>
                     <span
                         class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2">PySpark</span>
                     <span
-                        class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2">Kafka</span>
-                    <span
-                        class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2">PostgreSQL</span>
+                        class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2">DataBricks</span>
                     <span
                         class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2">SQL</span>
+                    <span
+                        class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2">Kafka</span>
                     <span
                         class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2">Power
                         BI</span>
@@ -312,7 +313,7 @@
         </div>
         <!-- Right Image -->
         <div class="hidden md:block md:w-[45%] lg:w-[40%] hero-clip relative">
-            <img src="./assets/Sarjun.png" alt="Mohamed Sarjun J" class="w-full h-full object-cover object-top">
+            <img src="assets/Sarjun.png" alt="Mohamed Sarjun J" class="w-full h-full object-cover object-top">
             <div class="absolute inset-0 bg-orange-600/10 mix-blend-overlay"></div>
             <div class="absolute inset-0 bg-gradient-to-r from-[#09090b] via-transparent to-transparent"></div>
         </div>
@@ -547,8 +548,8 @@
                 <div class="tab-panel hidden" data-panel="viz">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div class="glass-panel rounded-xl p-6 text-center">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/powerbi.svg" alt="Power BI"
-                                class="w-10 h-10 mx-auto mb-3" style="filter: invert(100%);">
+                            <img src="https://cdn.simpleicons.org/powerbi/F29100" alt="Power BI"
+                                class="w-10 h-10 mx-auto mb-3">
                             <div class="text-sm font-medium mb-1">Power BI</div>
                             <div class="text-[10px] text-zinc-500 uppercase tracking-wider">DAX & Modeling</div>
                         </div>
@@ -559,8 +560,8 @@
                             <div class="text-[10px] text-zinc-500 uppercase tracking-wider">BI Visualization</div>
                         </div>
                         <div class="glass-panel rounded-xl p-6 text-center">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftexcel.svg" alt="Excel"
-                                class="w-10 h-10 mx-auto mb-3" style="filter: invert(100%);">
+                            <img src="https://cdn.simpleicons.org/microsoftexcel/217346" alt="Excel"
+                                class="w-10 h-10 mx-auto mb-3">
                             <div class="text-sm font-medium mb-1">Excel</div>
                             <div class="text-[10px] text-zinc-500 uppercase tracking-wider">Pivot & VLOOKUP</div>
                         </div>
@@ -621,39 +622,24 @@
                             <span class="text-xs font-medium">Data Modelling</span>
                         </div>
                         <div class="glass-panel rounded-xl p-5 text-center group">
-                            <div class="w-8 h-8 mx-auto mb-2 flex items-center justify-center text-orange-500 text-lg font-bold">
-                                Δ
-                            </div>
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/deltalake.svg"
+                                alt="Delta Lake" class="w-8 h-8 mx-auto mb-2 skill-icon"
+                                style="filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(160deg);">
                             <span class="text-xs font-medium">Delta Lake</span>
                         </div>
                         <div class="glass-panel rounded-xl p-5 text-center group">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/pandas.svg"
-                                alt="Pandas" class="w-8 h-8 mx-auto mb-2 skill-icon"
-                                style="filter: invert(100%);">
-                            <span class="text-xs font-medium">Pandas</span>
-                        </div>
-                        <div class="glass-panel rounded-xl p-5 text-center group">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/numpy.svg"
-                                alt="NumPy" class="w-8 h-8 mx-auto mb-2 skill-icon"
-                                style="filter: invert(100%);">
-                            <span class="text-xs font-medium">NumPy</span>
-                        </div>
-                        <div class="glass-panel rounded-xl p-5 text-center group">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/git.svg" alt="Git"
-                                class="w-8 h-8 mx-auto mb-2 skill-icon"
-                                style="filter: invert(100%);">
+                            <img src="https://cdn.simpleicons.org/git/F05032" alt="Git"
+                                class="w-8 h-8 mx-auto mb-2 skill-icon">
                             <span class="text-xs font-medium">Git & GitHub</span>
                         </div>
                         <div class="glass-panel rounded-xl p-5 text-center group">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/docker.svg" alt="Docker"
-                                class="w-8 h-8 mx-auto mb-2 skill-icon"
-                                style="filter: invert(100%);">
+                            <img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker"
+                                class="w-8 h-8 mx-auto mb-2 skill-icon">
                             <span class="text-xs font-medium">Docker</span>
                         </div>
                         <div class="glass-panel rounded-xl p-5 text-center group">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/snowflake.svg" alt="Snowflake"
-                                class="w-8 h-8 mx-auto mb-2 skill-icon"
-                                style="filter: invert(100%);">
+                            <img src="https://cdn.simpleicons.org/snowflake/29B5E8" alt="Snowflake"
+                                class="w-8 h-8 mx-auto mb-2 skill-icon">
                             <span class="text-xs font-medium">Snowflake</span>
                         </div>
                     </div>
@@ -755,31 +741,39 @@
                         <ul class="space-y-4">
                             <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
                                 <i data-lucide="chevron-right" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
-                                <span>I contributed to the consolidation of transactional and operational data from <span
-                                    class="text-white font-medium">multiple microservices</span> including MMS, TMS, and
-                                    Onboarding. This involved mapping data across <span
-                                    class="text-white font-medium">six stakeholder levels</span> Banks, Aggregators, ISOs, Sub ISOs, Group Merchants, and Merchants and designing a unified master dataset structured for ingestion into ClickHouse as a single source of truth for the analytics platform.</span>
+                                <span>I spearheaded the consolidation of transactional and operational data from <span
+                                        class="text-white font-medium">three core microservices</span> (MMS, TMS, and
+                                    Onboarding). This involved mapping data across <span
+                                        class="text-white font-medium">five stakeholder levels</span> into ClickHouse to
+                                    create a unified source of truth for our analytics platform.</span>
                             </li>
                             <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
                                 <i data-lucide="chevron-right" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
-                                <span>I designed data transformation rules for cleaning, deduplication, and normalization, improving reporting reliability and ensuring consistent data quality across source systems.</span>
+                                <span>I designed and implemented data transformation rules for cleaning and
+                                    deduplication, which significantly improved the reliability of our reporting and
+                                    ensured consistent data quality.</span>
                             </li>
                             <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
                                 <i data-lucide="chevron-right" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
-                                <span>Worked closely with stakeholders to define and prioritize <span
-                                    class="text-white font-medium">15+ key metrics</span> for a merchant facing dashboard and prototyped layouts in Power BI to validate business logic and user requirements.</span>
-                                </li>
-                                <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
-                                    <i data-lucide="chevron-right" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
-                                    <span>Replicated finalized dashboards in Apache Superset with <span
-                                        class="text-white font-medium">100% metric parity</span>, enabling seamless embedding of analytics into the CentreFirst platform by the development team.</span>
-                                    </li>
-                                    <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
-                                        <i data-lucide="chevron-right" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
-                                        <span>Supported data validation and User Acceptance Testing by cross verifying records between source systems and the master dataset and resolved <span
-                                            class="text-white font-medium">all critical discrepancies</span> before go live, resulting in zero post launch data issues.</span>
-                                        </li>
-                                    </ul>
+                                <span>Working closely with stakeholders, I identified and prioritized <span
+                                        class="text-white font-medium">over 15 key metrics</span> for a merchant-facing
+                                    dashboard. I personally prototyped the layouts in Power BI to ensure they met all
+                                    business and user requirements.</span>
+                            </li>
+                            <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
+                                <span>Replicated finalised dashboards in Apache Superset with <span
+                                        class="text-white font-medium">100% metric parity</span>, enabling seamless
+                                    embedding of analytics into the CentreFirst platform by the development team.</span>
+                            </li>
+                            <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
+                                <span>I managed the end-to-end data validation and User Acceptance Testing (UAT). By
+                                    meticulously cross-verifying records, I resolved <span
+                                        class="text-white font-medium">all critical discrepancies</span> before the
+                                    go-live date, resulting in a flawless launch.</span>
+                            </li>
+                        </ul>
                         <div class="flex flex-wrap gap-2 mt-6 pt-6 border-t border-white/5">
                             <span
                                 class="text-[10px] font-medium text-zinc-500 bg-zinc-800/50 rounded px-2.5 py-1">ClickHouse</span>
@@ -816,18 +810,17 @@
                         <ul class="space-y-4">
                             <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
                                 <i data-lucide="chevron-right" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
-                                <span>I built a preprocessing pipeline prototype handling <span
-                                        class="text-white font-medium">100K+ transaction records</span> across
-                                    three payment channels — AEPS, POS, and UPI — and reduced data noise by approximately
-                                    35% through cleaning and initial feature selection.</span>
+                                <span>I developed a robust preprocessing pipeline to handle <span
+                                        class="text-white font-medium">100,000+ transaction records</span> across
+                                    multiple payment channels. This work successfully reduced data noise by
+                                    approximately 35%.</span>
                             </li>
                             <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
                                 <i data-lucide="chevron-right" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
-                                <span>I designed and experimented with a feature engineering pipeline using PCA for
-                                    dimensionality reduction and Isolation Forest for anomaly detection, applying SHAP
-                                    values for interpretability to achieve about <span
-                                        class="text-white font-medium">70% fraud detection accuracy</span> and reduce
-                                    simulated manual review effort by roughly 25%.</span>
+                                <span>I engineered a feature pipeline using PCA and Isolation Forest models. By applying
+                                    SHAP values for better interpretability, I achieved <span
+                                        class="text-white font-medium">70% detection accuracy</span> and reduced manual
+                                    review requirements by 25%.</span>
                             </li>
                         </ul>
                         <div class="flex flex-wrap gap-2 mt-6 pt-6 border-t border-white/5">
@@ -870,7 +863,7 @@
                     <div class="absolute inset-0 flex flex-col justify-end p-8">
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span
-                                class="text-[10px] font-bold uppercase tracking-[0.1em] text-orange-500 border border-orange-500/30 rounded-full px-3 py-1 tag-glow">Real-Time Pipeline</span>
+                                class="text-[10px] font-bold uppercase tracking-[0.1em] text-orange-500 border border-orange-500/30 rounded-full px-3 py-1 tag-glow">Real-Time</span>
                         </div>
                         <h3 class="project-title-shift text-2xl font-medium tracking-tight mb-3">UPI Transaction
                             Simulator & Real-Time ETL</h3>
@@ -1170,18 +1163,19 @@
 
             <!-- Contact Form -->
             <div class="max-w-2xl mx-auto fade-up">
-                <form id="contactForm" autocomplete="off" onsubmit="handleContactForm(event); return false;" class="glass-panel rounded-2xl p-8 md:p-12 space-y-6">                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <form id="contactForm" class="glass-panel rounded-2xl p-8 md:p-12 space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label
                                 class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 mb-2 block">Name</label>
-                            <input type="text" name="from_name" required
+                            <input type="text" required
                                 class="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/50 transition-colors"
                                 placeholder="Your name">
                         </div>
                         <div>
                             <label
                                 class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 mb-2 block">Email</label>
-                            <input type="email" name="from_email" required
+                            <input type="email" required
                                 class="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/50 transition-colors"
                                 placeholder="your@email.com">
                         </div>
@@ -1189,14 +1183,14 @@
                     <div>
                         <label
                             class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 mb-2 block">Subject</label>
-                        <input type="text" name="subject"
+                        <input type="text"
                             class="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/50 transition-colors"
                             placeholder="What's this about?">
                     </div>
                     <div>
                         <label
                             class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 mb-2 block">Message</label>
-                        <textarea rows="5" name="message" required
+                        <textarea rows="5" required
                             class="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/50 transition-colors resize-none"
                             placeholder="Tell me about the opportunity..."></textarea>
                     </div>
@@ -1244,48 +1238,14 @@
         </div>
     </footer>
 
-    <!-- Success Modal -->
-    <div id="successModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 hidden">
-        <div class="glass-panel rounded-2xl p-8 md:p-12 max-w-md mx-auto text-center animate-fade-in">
-            <div class="mb-6 flex justify-center">
-                <div class="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center">
-                    <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                </div>
-            </div>
-            <h3 class="text-2xl font-semibold mb-3 text-white">Message Sent Successfully!</h3>
-            <p class="text-zinc-400 mb-6 leading-relaxed">
-                Thank you for reaching out. I havereceived your message and will contact you as soon as possible.
-            </p>
-            <button onclick="document.getElementById('successModal').classList.add('hidden')"
-                class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-lg transition-colors duration-150">
-                Close
-            </button>
-        </div>
-    </div>
-
-    <style>
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        .animate-fade-in {
-            animation: fadeIn 0.3s ease-out;
-        }
-    </style>
+    <!-- Back to Top -->
     <button id="backToTop"
         class="fixed bottom-8 right-8 w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-orange-400 z-50 shadow-lg shadow-orange-500/20">
         <i data-lucide="arrow-up" class="w-4 h-4"></i>
     </button>
 
     <script>
+        // Initialize Lucide Icons
         lucide.createIcons();
 
         // Mobile Menu Toggle
@@ -1412,6 +1372,19 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const msg = document.getElementById('formMessage');
+            msg.classList.remove('hidden');
+            msg.className = 'text-sm text-green-400 flex items-center gap-2';
+            msg.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Message sent! (Demo — connect to backend for production)';
+            e.target.reset();
+            setTimeout(() => {
+                msg.classList.add('hidden');
+            }, 5000);
+        });
+
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
@@ -1422,54 +1395,6 @@
             }
         });
     </script>
-
-    <script>
-    // Initialize EmailJS (no delay needed)
-    (function(){
-        emailjs.init("WkUSYlRDklHfVUAoJ");
-    })();
-
-    function handleContactForm(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        window.history.replaceState({}, document.title, window.location.pathname);        
-
-        const form = document.getElementById('contactForm');
-        const msg = document.getElementById('formMessage');
-
-        const formData = {
-            from_name: form.from_name.value,
-            from_email: form.from_email.value,
-            subject: form.subject.value,
-            message: form.message.value
-        };
-        if (!formData.from_email.includes("@")) {
-            alert("Invalid email");
-            return;
-        }
-
-        // Show loading
-        msg.classList.remove('hidden');
-        msg.className = 'text-sm text-orange-400';
-        msg.innerHTML = 'Sending message...';
-
-        emailjs.send('service_gqn0pxo', 'template_pbkmjfg', formData)
-            .then(function() {
-                // Success
-                document.getElementById('successModal').classList.remove('hidden');
-                form.reset(); 
-
-                msg.classList.add('hidden');
-            })
-            .catch(function(error) {
-                console.error('Email failed:', error);
-
-                msg.classList.remove('hidden');
-                msg.className = 'text-sm text-red-400';
-                msg.innerHTML = 'Failed to send message. Try again.';
-            });
-    }
-</script>
 </body>
 
 </html>
