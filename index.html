@@ -188,9 +188,61 @@
             transition: all 0.3s ease;
         }
 
-        .glass-panel:hover .skill-icon {
+        .glass-panel:hover .skill-icon,
+        .skill-icon:hover {
             filter: grayscale(0) brightness(1);
-            transform: scale(1.1);
+            transform: scale(1.15);
+        }
+
+        /* Lucide svg icons inside skill cards */
+        .skill-lucide {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .glass-panel:hover .skill-lucide,
+        .skill-lucide:hover {
+            transform: scale(1.2);
+            color: #fb923c;
+            /* slightly brighter orange */
+        }
+
+        /* Icon wrapper divs (used for ETL, Ingestion, etc.) */
+        .skill-icon-wrap {
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .glass-panel:hover .skill-icon-wrap,
+        .skill-icon-wrap:hover {
+            transform: scale(1.15);
+            background: rgba(249, 115, 22, 0.2);
+        }
+
+        /* Skill tags under name and summary */
+        .skill-tag {
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            border-color: #f97316;
+            color: white;
+            background: rgba(249, 115, 22, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.1);
+        }
+
+        /* Soft Skills items hover */
+        .soft-skill-item {
+            transition: all 0.3s ease;
+        }
+
+        .soft-skill-item:hover {
+            color: white;
+            transform: translateX(4px);
+        }
+
+        .soft-skill-item:hover .bg-orange-500 {
+            transform: scale(1.5);
+            box-shadow: 0 0 8px #f97316;
         }
     </style>
 </head>
@@ -206,7 +258,8 @@
                     <span class="text-[#09090b] text-[10px] font-bold leading-none">MS</span>
                 </div>
                 <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
-                    <span class="text-sm font-bold tracking-tight whitespace-nowrap">Sarjun | <span class="text-zinc-500 font-normal">A Data Enthusiast</span></span>
+                    <span class="text-sm font-bold tracking-tight whitespace-nowrap">Sarjun | <span
+                            class="text-zinc-500 font-normal">A Data Enthusiast</span></span>
                 </div>
             </a>
             <div class="hidden md:flex items-center gap-8">
@@ -223,7 +276,8 @@
                 <a href="#contact"
                     class="bg-white text-[#09090b] text-xs font-bold uppercase tracking-wider px-5 py-3 hover:bg-zinc-200 transition-colors duration-150">Contact</a>
             </div>
-            <button id="mobileMenuBtn" type="button" aria-controls="mobileMenu" aria-expanded="false" class="md:hidden text-zinc-400 hover:text-white transition-colors">
+            <button id="mobileMenuBtn" type="button" aria-controls="mobileMenu" aria-expanded="false"
+                class="md:hidden text-zinc-400 hover:text-white transition-colors">
                 <i data-lucide="menu" class="w-5 h-5"></i>
             </button>
         </div>
@@ -263,24 +317,24 @@
                         Sarjun J.</span>
                 </h1>
                 <p class="text-lg md:text-xl font-light text-zinc-400 leading-relaxed max-w-lg mb-8">
-                    Data professional with experience in the <span class="text-white font-medium">Fintech Domain</span>,
+                    Data Professional with experience in the <span class="text-white font-medium">Fintech Domain</span>,
                     skilled in Python, SQL, Power BI, and Apache Superset. Currently upskilling in <span
-                        class="text-white font-medium">Data engineering</span> with Hands-on exposure to PostgreSQL,
+                        class="text-white font-medium">Data Engineering</span> with Hands-on exposure to PostgreSQL,
                     Kafka, and Databricks.
                 </p>
                 <div class="flex flex-wrap gap-3 mb-12">
                     <span
-                        class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2">Python</span>
+                        class="skill-tag text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2 cursor-default">Python</span>
                     <span
-                        class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2">PySpark</span>
+                        class="skill-tag text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2 cursor-default">PySpark</span>
                     <span
-                        class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2">DataBricks</span>
+                        class="skill-tag text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2 cursor-default">DataBricks</span>
                     <span
-                        class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2">SQL</span>
+                        class="skill-tag text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2 cursor-default">SQL</span>
                     <span
-                        class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2">Kafka</span>
+                        class="skill-tag text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2 cursor-default">Kafka</span>
                     <span
-                        class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2">Power
+                        class="skill-tag text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2 cursor-default">Power
                         BI</span>
                 </div>
                 <div class="flex items-center gap-6 mb-12">
@@ -358,18 +412,16 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div class="fade-up">
-                    <span class="text-[10px] font-bold uppercase tracking-[0.1em] text-orange-500 mb-4 block">About
-                        Me</span>
-                    <h2 class="text-3xl font-semibold tracking-tight mb-6">From analyzing data to<br><span
-                            class="text-orange-500">architecting its flow</span></h2>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.1em] text-orange-500 mb-4 block">About Me</span>
+                    <h2 class="text-3xl font-semibold tracking-tight mb-6">From Analyzing Data to<br><span class="text-orange-500">Architecting its Flow</span></h2>
                     <div class="space-y-4 text-zinc-400 text-sm leading-relaxed">
-                        <p>Data professional with experience in the <span class="text-white font-medium">fintech
-                                domain</span>, skilled in Python (Pandas), SQL, Power BI, and Apache Superset for data
-                            analysis and visualization. Strong hands-on experience in data transformation, reporting,
-                            and building business insights.</p>
-                        <p>Currently <span class="text-white font-medium">upskilling in data engineering</span> concepts
+                        <p>Data Professional with experience in the <span class="text-white font-medium">Fintech
+                                Domain</span>, skilled in Python (Pandas), SQL, Power BI, and Apache Superset for Data
+                            Analysis and Visualization. Strong hands-on experience in Data Transformation, Reporting,
+                            and building Business Insights.</p>
+                        <p>Currently <span class="text-white font-medium">Upskilling in Data Engineering</span> concepts
                             with practical exposure to PostgreSQL, Apache Kafka, and Databricks. Open to Data Engineer
-                            and Data Analyst roles, with a focus on building scalable and efficient data pipelines.</p>
+                            and Data Analyst roles, with a focus on building Scalable and Efficient Data Pipelines.</p>
                     </div>
                     <div class="mt-8 flex flex-wrap gap-6">
                         <div class="flex items-center gap-2 text-zinc-500 text-xs">
@@ -426,9 +478,9 @@
     <section id="skills" class="py-24 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 fade-up">
-                <span class="text-[10px] font-bold uppercase tracking-[0.1em] text-orange-500 mb-4 block">Technical
+                <span class="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-orange-500 mb-4 block">Technical
                     Arsenal</span>
-                <h2 class="text-3xl font-semibold tracking-tight">Skills & Technologies</h2>
+                <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">Skills & Technologies</h2>
             </div>
 
             <!-- Skill Tabs -->
@@ -458,10 +510,11 @@
                 <!-- Querying (default) -->
                 <div class="tab-panel" data-panel="querying">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="glass-panel rounded-xl p-6">
+                        <div class="glass-panel rounded-xl p-6 hover:border-orange-500/30 transition-all duration-300">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center gap-2">
-                                    <img src="https://cdn.simpleicons.org/mysql/4479A1" class="w-5 h-5" alt="MySQL">
+                                    <img src="https://cdn.simpleicons.org/mysql/4479A1" class="w-5 h-5 skill-icon"
+                                        alt="MySQL">
                                     <span class="text-sm font-medium">SQL (MySQL)</span>
                                 </div>
                                 <span class="text-xs text-orange-500 font-medium">Advanced</span>
@@ -481,10 +534,11 @@
                                     class="text-[10px] font-medium text-zinc-500 bg-zinc-800/50 rounded px-2 py-1">CTEs</span>
                             </div>
                         </div>
-                        <div class="glass-panel rounded-xl p-6">
+                        <div class="glass-panel rounded-xl p-6 hover:border-orange-500/30 transition-all duration-300">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center gap-2">
-                                    <img src="https://cdn.simpleicons.org/python/3776AB" class="w-5 h-5" alt="Python">
+                                    <img src="https://cdn.simpleicons.org/python/3776AB" class="w-5 h-5 skill-icon"
+                                        alt="Python">
                                     <span class="text-sm font-medium">Python (Pandas)</span>
                                 </div>
                                 <span class="text-xs text-orange-500 font-medium">Advanced</span>
@@ -510,35 +564,35 @@
                 <div class="tab-panel hidden" data-panel="analysis">
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <div class="glass-panel rounded-xl p-5 text-center flex flex-col items-center justify-center">
-                            <i data-lucide="search" class="w-6 h-6 text-orange-500 mb-2"></i>
+                            <i data-lucide="search" class="w-6 h-6 text-orange-500 mb-2 skill-lucide"></i>
                             <span class="text-xs font-medium">EDA</span>
                         </div>
                         <div class="glass-panel rounded-xl p-5 text-center flex flex-col items-center justify-center">
-                            <i data-lucide="bar-chart-3" class="w-6 h-6 text-orange-500 mb-2"></i>
+                            <i data-lucide="bar-chart-3" class="w-6 h-6 text-orange-500 mb-2 skill-lucide"></i>
                             <span class="text-xs font-medium">Statistical Analysis</span>
                         </div>
                         <div class="glass-panel rounded-xl p-5 text-center flex flex-col items-center justify-center">
-                            <i data-lucide="trending-up" class="w-6 h-6 text-orange-500 mb-2"></i>
+                            <i data-lucide="trending-up" class="w-6 h-6 text-orange-500 mb-2 skill-lucide"></i>
                             <span class="text-xs font-medium">Trend Analysis</span>
                         </div>
                         <div class="glass-panel rounded-xl p-5 text-center flex flex-col items-center justify-center">
-                            <i data-lucide="target" class="w-6 h-6 text-orange-500 mb-2"></i>
+                            <i data-lucide="target" class="w-6 h-6 text-orange-500 mb-2 skill-lucide"></i>
                             <span class="text-xs font-medium">KPI Definition</span>
                         </div>
                         <div class="glass-panel rounded-xl p-5 text-center flex flex-col items-center justify-center">
-                            <i data-lucide="alert-triangle" class="w-6 h-6 text-orange-500 mb-2"></i>
+                            <i data-lucide="alert-triangle" class="w-6 h-6 text-orange-500 mb-2 skill-lucide"></i>
                             <span class="text-xs font-medium">Anomaly Detection</span>
                         </div>
                         <div class="glass-panel rounded-xl p-5 text-center flex flex-col items-center justify-center">
-                            <i data-lucide="clock" class="w-6 h-6 text-orange-500 mb-2"></i>
+                            <i data-lucide="clock" class="w-6 h-6 text-orange-500 mb-2 skill-lucide"></i>
                             <span class="text-xs font-medium">Time Series</span>
                         </div>
                         <div class="glass-panel rounded-xl p-5 text-center flex flex-col items-center justify-center">
-                            <i data-lucide="layers" class="w-6 h-6 text-orange-500 mb-2"></i>
+                            <i data-lucide="layers" class="w-6 h-6 text-orange-500 mb-2 skill-lucide"></i>
                             <span class="text-xs font-medium">Business Insights</span>
                         </div>
                         <div class="glass-panel rounded-xl p-5 text-center flex flex-col items-center justify-center">
-                            <i data-lucide="clipboard-list" class="w-6 h-6 text-orange-500 mb-2"></i>
+                            <i data-lucide="clipboard-list" class="w-6 h-6 text-orange-500 mb-2 skill-lucide"></i>
                             <span class="text-xs font-medium">Requirement Gathering</span>
                         </div>
                     </div>
@@ -548,24 +602,25 @@
                 <div class="tab-panel hidden" data-panel="viz">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div class="glass-panel rounded-xl p-6 text-center">
-                            <i data-lucide="bar-chart-3" class="w-10 h-10 mx-auto mb-3 text-orange-500"></i>
+                            <i data-lucide="bar-chart-3"
+                                class="w-10 h-10 mx-auto mb-3 text-orange-500 skill-lucide"></i>
                             <div class="text-sm font-medium mb-1">Power BI</div>
                             <div class="text-[10px] text-zinc-500 uppercase tracking-wider">DAX & Modeling</div>
                         </div>
                         <div class="glass-panel rounded-xl p-6 text-center">
                             <img src="https://cdn.simpleicons.org/apachesuperset/00A3DA" alt="Apache Superset"
-                                class="w-8 h-8 mx-auto mb-3">
+                                class="w-8 h-8 mx-auto mb-3 skill-icon">
                             <div class="text-sm font-medium mb-1">Apache Superset</div>
                             <div class="text-[10px] text-zinc-500 uppercase tracking-wider">BI Visualization</div>
                         </div>
                         <div class="glass-panel rounded-xl p-6 text-center">
-                            <i data-lucide="file-text" class="w-10 h-10 mx-auto mb-3 text-orange-500"></i>
+                            <i data-lucide="file-text" class="w-10 h-10 mx-auto mb-3 text-orange-500 skill-lucide"></i>
                             <div class="text-sm font-medium mb-1">Excel</div>
                             <div class="text-[10px] text-zinc-500 uppercase tracking-wider">Pivot & VLOOKUP</div>
                         </div>
                         <div class="glass-panel rounded-xl p-6 text-center">
                             <img src="https://cdn.simpleicons.org/python/3776AB" alt="Python"
-                                class="w-8 h-8 mx-auto mb-3">
+                                class="w-8 h-8 mx-auto mb-3 skill-icon">
                             <div class="text-sm font-medium mb-1">Python</div>
                             <div class="text-[10px] text-zinc-500 uppercase tracking-wider">Matplotlib & Seaborn</div>
                         </div>
@@ -596,33 +651,37 @@
                             <span class="text-xs font-medium">PostgreSQL</span>
                         </div>
                         <div class="glass-panel rounded-xl p-5 text-center group">
-                            <div class="w-8 h-8 mx-auto mb-2 bg-orange-500/10 rounded flex items-center justify-center">
-                                <i data-lucide="database" class="w-5 h-5 text-orange-500"></i>
+                            <div
+                                class="w-8 h-8 mx-auto mb-2 bg-orange-500/10 rounded flex items-center justify-center skill-icon-wrap">
+                                <i data-lucide="database" class="w-5 h-5 text-orange-500 skill-lucide"></i>
                             </div>
                             <span class="text-xs font-medium">ETL Pipeline</span>
                         </div>
                         <div class="glass-panel rounded-xl p-5 text-center group">
-                            <div class="w-8 h-8 mx-auto mb-2 bg-orange-500/10 rounded flex items-center justify-center">
-                                <i data-lucide="network" class="w-5 h-5 text-orange-500"></i>
+                            <div
+                                class="w-8 h-8 mx-auto mb-2 bg-orange-500/10 rounded flex items-center justify-center skill-icon-wrap">
+                                <i data-lucide="network" class="w-5 h-5 text-orange-500 skill-lucide"></i>
                             </div>
                             <span class="text-xs font-medium">Data Ingestion</span>
                         </div>
                         <div class="glass-panel rounded-xl p-5 text-center group">
-                            <div class="w-8 h-8 mx-auto mb-2 bg-orange-500/10 rounded flex items-center justify-center">
-                                <i data-lucide="repeat" class="w-5 h-5 text-orange-500"></i>
+                            <div
+                                class="w-8 h-8 mx-auto mb-2 bg-orange-500/10 rounded flex items-center justify-center skill-icon-wrap">
+                                <i data-lucide="repeat" class="w-5 h-5 text-orange-500 skill-lucide"></i>
                             </div>
                             <span class="text-xs font-medium">Data Transformation</span>
                         </div>
                         <div class="glass-panel rounded-xl p-5 text-center group">
-                            <div class="w-8 h-8 mx-auto mb-2 bg-orange-500/10 rounded flex items-center justify-center">
-                                <i data-lucide="layers" class="w-5 h-5 text-orange-500"></i>
+                            <div
+                                class="w-8 h-8 mx-auto mb-2 bg-orange-500/10 rounded flex items-center justify-center skill-icon-wrap">
+                                <i data-lucide="layers" class="w-5 h-5 text-orange-500 skill-lucide"></i>
                             </div>
                             <span class="text-xs font-medium">Data Modelling</span>
                         </div>
-                        <div class="glass-panel rounded-xl p-5 text-center group">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/deltalake.svg"
-                                alt="Delta Lake" class="w-8 h-8 mx-auto mb-2 skill-icon"
-                                style="filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(160deg);">
+                        <div
+                            class="glass-panel rounded-xl p-5 text-center group hover:border-orange-500/30 transition-all duration-300">
+                            <img src="https://cdn.simpleicons.org/deltalake" alt="Delta Lake"
+                                class="w-8 h-8 mx-auto mb-2 skill-icon">
                             <span class="text-xs font-medium">Delta Lake</span>
                         </div>
                         <div class="glass-panel rounded-xl p-5 text-center group">
@@ -646,20 +705,20 @@
                 <!-- ML -->
                 <div class="tab-panel hidden" data-panel="ml">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="glass-panel rounded-xl p-6">
-                            <i data-lucide="minimize-2" class="w-8 h-8 text-orange-500 mb-3"></i>
+                        <div class="glass-panel rounded-xl p-6 hover:border-orange-500/30 transition-all duration-300">
+                            <i data-lucide="minimize-2" class="w-8 h-8 text-orange-500 mb-3 skill-lucide"></i>
                             <div class="text-sm font-medium mb-1">Dimensionality Reduction</div>
-                            <div class="text-xs text-zinc-500">PCA for high-dimensional transaction data</div>
+                            <div class="text-xs text-zinc-500">PCA for High-Dimensional Transaction Data</div>
                         </div>
-                        <div class="glass-panel rounded-xl p-6">
-                            <i data-lucide="radar" class="w-8 h-8 text-orange-500 mb-3"></i>
+                        <div class="glass-panel rounded-xl p-6 hover:border-orange-500/30 transition-all duration-300">
+                            <i data-lucide="radar" class="w-8 h-8 text-orange-500 mb-3 skill-lucide"></i>
                             <div class="text-sm font-medium mb-1">Anomaly Detection</div>
-                            <div class="text-xs text-zinc-500">Isolation Forest for fraud flagging</div>
+                            <div class="text-xs text-zinc-500">Isolation Forest for Fraud Flagging</div>
                         </div>
-                        <div class="glass-panel rounded-xl p-6">
-                            <i data-lucide="eye" class="w-8 h-8 text-orange-500 mb-3"></i>
+                        <div class="glass-panel rounded-xl p-6 hover:border-orange-500/30 transition-all duration-300">
+                            <i data-lucide="eye" class="w-8 h-8 text-orange-500 mb-3 skill-lucide"></i>
                             <div class="text-sm font-medium mb-1">Model Explainability</div>
-                            <div class="text-xs text-zinc-500">SHAP values for prediction interpretation</div>
+                            <div class="text-xs text-zinc-500">SHAP values for Prediction Interpretation</div>
                         </div>
                     </div>
                 </div>
@@ -705,9 +764,9 @@
     <section id="experience" class="py-24 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 fade-up">
-                <span class="text-[10px] font-bold uppercase tracking-[0.1em] text-orange-500 mb-4 block">Career
+                <span class="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-orange-500 mb-4 block">Career
                     Journey</span>
-                <h2 class="text-3xl font-semibold tracking-tight">Professional Experience</h2>
+                <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">Professional Experience</h2>
             </div>
 
             <div class="max-w-4xl mx-auto space-y-12">
@@ -739,32 +798,52 @@
                         <ul class="space-y-4">
                             <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
                                 <i data-lucide="chevron-right" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
-                                <span>I contributed to the consolidation of transactional and operational data from <span
-                                    class="text-white font-medium">multiple microservices</span> including MMS, TMS, and
+                                <span>I contributed to the consolidation of <span
+                                        class="text-white font-medium">Transactional and Operational Data</span> from
+                                    <span class="text-white font-medium">multiple Microservices</span> including MMS,
+                                    TMS, and
                                     Onboarding. This involved mapping data across <span
-                                    class="text-white font-medium">six stakeholder levels</span> Banks, Aggregators, ISOs, Sub ISOs, Group Merchants, and Merchants and designing a unified master dataset structured for ingestion into ClickHouse as a single source of truth for the analytics platform.</span>
+                                        class="text-white font-medium">Six Stakeholder Levels</span>—Banks, Aggregators,
+                                    ISOs, Sub ISOs, Group Merchants, and Merchants—and designing a unified <span
+                                        class="text-white font-medium">Master Dataset</span> structured for ingestion
+                                    into ClickHouse as a <span class="text-white font-medium">Single Source of
+                                        Truth</span> for the Analytics Platform.</span>
                             </li>
                             <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
                                 <i data-lucide="chevron-right" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
-                                <span>I designed data transformation rules for cleaning, deduplication, and normalization, improving reporting reliability and ensuring consistent data quality across source systems.</span>
+                                <span>I designed <span class="text-white font-medium">Data Transformation Rules</span>
+                                    for cleaning, deduplication, and normalization, improving <span
+                                        class="text-white font-medium">Reporting Reliability</span> and ensuring
+                                    consistent <span class="text-white font-medium">Data Quality</span> across <span
+                                        class="text-white font-medium">Source Systems</span>.</span>
                             </li>
                             <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
                                 <i data-lucide="chevron-right" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
                                 <span>Worked closely with stakeholders to define and prioritize <span
-                                    class="text-white font-medium">15+ key metrics</span> for a merchant facing dashboard and prototyped layouts in Power BI to validate business logic and user requirements.</span>
-                                </li>
-                                <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
-                                    <i data-lucide="chevron-right" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
-                                    <span>Replicated finalized dashboards in Apache Superset with <span
-                                        class="text-white font-medium">100% metric parity</span>, enabling seamless embedding of analytics into the CentreFirst platform by the development team.</span>
-                                    </li>
-                                    <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
-                                        <i data-lucide="chevron-right" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
-                                        <span>Supported data validation and User Acceptance Testing by cross verifying records between source systems and the master dataset and resolved <span
-                                            class="text-white font-medium">all critical discrepancies</span> before go live, resulting in zero post launch data issues.</span>
-                                        </li>
-                                    </ul>
-                
+                                        class="text-white font-medium">15+ Key Metrics</span> for a <span
+                                        class="text-white font-medium">Merchant-Facing Dashboard</span> and prototyped
+                                    layouts in Power BI to validate <span class="text-white font-medium">Business
+                                        Logic</span> and <span class="text-white font-medium">User
+                                        Requirements</span>.</span>
+                            </li>
+                            <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
+                                <span>Replicated finalized dashboards in Apache Superset with <span
+                                        class="text-white font-medium">100% metric parity</span>, enabling seamless
+                                    embedding of analytics into the CentreFirst platform by the development team.</span>
+                            </li>
+                            <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
+                                <span>Supported <span class="text-white font-medium">Data Validation</span> and <span
+                                        class="text-white font-medium">User Acceptance Testing (UAT)</span> by
+                                    cross-verifying records between <span class="text-white font-medium">Source
+                                        Systems</span> and the <span class="text-white font-medium">Master
+                                        Dataset</span>; resolved <span class="text-white font-medium">All Critical
+                                        Discrepancies</span> before go-live, resulting in <span
+                                        class="text-white font-medium">Zero Post-Launch Data Issues</span>.</span>
+                            </li>
+                        </ul>
+
                         <div class="flex flex-wrap gap-2 mt-6 pt-6 border-t border-white/5">
                             <span
                                 class="text-[10px] font-medium text-zinc-500 bg-zinc-800/50 rounded px-2.5 py-1">ClickHouse</span>
@@ -801,17 +880,24 @@
                         <ul class="space-y-4">
                             <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
                                 <i data-lucide="chevron-right" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
-                                <span>I built a preprocessing pipeline <span class="text-white font-medium">prototype</span> handling <span
-                                class="text-white font-medium">100,000+ transaction records</span> across 3 payment channels AEPS, POS, and UPI. I reduced data noise by approximately <span
-                                class="text-white font-medium">35%</span> through cleaning and initial feature selection, improving downstream model training efficiency.</span>
+                                <span>I built a preprocessing pipeline <span
+                                        class="text-white font-medium">prototype</span> handling <span
+                                        class="text-white font-medium">100,000+ transaction records</span> across 3
+                                    payment channels AEPS, POS, and UPI. I reduced data noise by approximately <span
+                                        class="text-white font-medium">35%</span> through cleaning and initial feature
+                                    selection, improving downstream model training efficiency.</span>
                             </li>
                             <li class="flex gap-3 text-sm text-zinc-400 leading-relaxed">
                                 <i data-lucide="chevron-right" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
-                                <span>I designed and experimented with a feature engineering pipeline using PCA for dimensionality reduction and Isolation Forest for anomaly detection. By applying SHAP values for interpretability, I achieved around <span
-                                    class="text-white font-medium">70% detection accuracy</span> in prototype testing, enabling initial automated flagging of high risk transactions and reducing simulated manual review effort by approximately <span
-                                    class="text-white font-medium">25%</span>.</span>
-                                </li>
-                            </ul>
+                                <span>I designed and experimented with a feature engineering pipeline using PCA for
+                                    dimensionality reduction and Isolation Forest for anomaly detection. By applying
+                                    SHAP values for interpretability, I achieved around <span
+                                        class="text-white font-medium">70% detection accuracy</span> in prototype
+                                    testing, enabling initial automated flagging of high risk transactions and reducing
+                                    simulated manual review effort by approximately <span
+                                        class="text-white font-medium">25%</span>.</span>
+                            </li>
+                        </ul>
                         <div class="flex flex-wrap gap-2 mt-6 pt-6 border-t border-white/5">
                             <span
                                 class="text-[10px] font-medium text-zinc-500 bg-zinc-800/50 rounded px-2.5 py-1">Python</span>
@@ -835,11 +921,9 @@
     <section id="projects" class="py-24 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 fade-up">
-                <span class="text-[10px] font-bold uppercase tracking-[0.1em] text-orange-500 mb-4 block">Featured
-                    Work</span>
-                <h2 class="text-3xl font-semibold tracking-tight">Projects</h2>
-                <p class="text-zinc-500 text-sm mt-3 max-w-xl mx-auto">Focused on analytical storytelling, large-scale
-                    EDA, real-time pipelines, and aligned with data analyst and analytics engineering roles.</p>
+                <span class="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-orange-500 mb-4 block">Featured Work</span>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Projects</h2>
+                <p class="text-zinc-500 text-sm mt-4 max-w-xl mx-auto italic">Focused on Analytical Storytelling, Large-Scale EDA, Real-Time Pipelines, and aligned with Data Analyst and Analytics Engineering roles.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -858,9 +942,13 @@
                             Simulator & Real-Time ETL</h3>
                         <p
                             class="text-zinc-400 text-sm leading-relaxed mb-5 max-h-0 group-hover:max-h-60 overflow-hidden transition-all duration-500">
-                            I designed and built an end-to-end real-time UPI transaction pipeline. This system
-                            successfully simulates over 400,000 payment events using a modern stack of Kafka, PySpark,
-                            and Medallion Architecture on Databricks.</p>
+                            I designed and built an end-to-end <span class="text-white font-medium">Real-Time UPI
+                                Transaction Pipeline</span>. This system
+                            successfully simulates over <span class="text-white font-medium">400,000 Payment
+                                Events</span> using a modern stack of <span class="text-white font-medium">Kafka,
+                                PySpark,</span>
+                            and <span class="text-white font-medium">Medallion Architecture</span> on <span
+                                class="text-white font-medium">Databricks</span>.</p>
                         <div
                             class="flex flex-wrap gap-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                             <span
@@ -916,31 +1004,41 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 fade-up">
                 <span
-                    class="text-[10px] font-bold uppercase tracking-[0.1em] text-orange-500 mb-4 block">Credentials</span>
-                <h2 class="text-3xl font-semibold tracking-tight">Certifications</h2>
+                    class="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-orange-500 mb-4 block">Credentials</span>
+                <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">Certifications</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-                <div class="cert-card glass-panel rounded-xl p-6 flex items-start gap-4 fade-up">
+                <a href="https://courses.etrain.skillsnetwork.site/certificates/6b02a735465b41d1bc88c0c278cc4c19"
+                    target="_blank"
+                    class="cert-card glass-panel rounded-xl p-6 flex items-start gap-4 fade-up hover:border-orange-500/30 transition-all duration-300">
                     <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center flex-shrink-0">
                         <i data-lucide="award" class="w-5 h-5 text-orange-500"></i>
                     </div>
-                    <div>
+                    <div class="flex-1">
                         <h4 class="text-sm font-medium mb-1">Data Analytics with Python</h4>
-                        <p class="text-xs text-zinc-500">IBM</p>
+                        <p class="text-xs text-zinc-500 mb-3">IBM</p>
+                        <div class="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-orange-500 group-hover:text-orange-400 transition-colors">
+                            View Certificate <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="cert-card glass-panel rounded-xl p-6 flex items-start gap-4 fade-up"
+                </a>
+                <a href="https://courses.cognitiveclass.ai/certificates/0227610f688a43d890f7532ec48228fb"
+                    target="_blank"
+                    class="cert-card glass-panel rounded-xl p-6 flex items-start gap-4 fade-up hover:border-orange-500/30 transition-all duration-300"
                     style="transition-delay: 0.1s">
                     <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center flex-shrink-0">
                         <i data-lucide="database" class="w-5 h-5 text-orange-500"></i>
                     </div>
-                    <div>
+                    <div class="flex-1">
                         <h4 class="text-sm font-medium mb-1">SQL and Relational Databases</h4>
-                        <p class="text-xs text-zinc-500">Cognitive Class, IBM</p>
+                        <p class="text-xs text-zinc-500 mb-3">Cognitive Class, IBM</p>
+                        <div class="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-orange-500 group-hover:text-orange-400 transition-colors">
+                            View Certificate <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="cert-card glass-panel rounded-xl p-6 flex items-start gap-4 fade-up"
+                </a>
+                <div class="cert-card glass-panel rounded-xl p-6 flex items-start gap-4 fade-up hover:border-orange-500/30 transition-all duration-300"
                     style="transition-delay: 0.2s">
                     <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center flex-shrink-0">
                         <i data-lucide="bar-chart-3" class="w-5 h-5 text-orange-500"></i>
@@ -950,16 +1048,20 @@
                         <p class="text-xs text-zinc-500">Softlogic Systems</p>
                     </div>
                 </div>
-                <div class="cert-card glass-panel rounded-xl p-6 flex items-start gap-4 fade-up"
+                <a href="https://www.guvi.in/share-certificate/ut3i9267111x8Q14Kc" target="_blank"
+                    class="cert-card glass-panel rounded-xl p-6 flex items-start gap-4 fade-up hover:border-orange-500/30 transition-all duration-300"
                     style="transition-delay: 0.3s">
                     <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center flex-shrink-0">
                         <i data-lucide="code" class="w-5 h-5 text-orange-500"></i>
                     </div>
-                    <div>
+                    <div class="flex-1">
                         <h4 class="text-sm font-medium mb-1">Python Programming</h4>
-                        <p class="text-xs text-zinc-500">GUVI</p>
+                        <p class="text-xs text-zinc-500 mb-3">GUVI</p>
+                        <div class="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-orange-500 group-hover:text-orange-400 transition-colors">
+                            View Certificate <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -969,13 +1071,15 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-16 fade-up">
-                    <span class="text-[10px] font-bold uppercase tracking-[0.1em] text-orange-500 mb-4 block">Background
+                    <span
+                        class="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-orange-500 mb-4 block">Background
                         & Skills</span>
-                    <h2 class="text-3xl font-semibold tracking-tight">Academic & Interpersonal</h2>
+                    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">Academic & Interpersonal</h2>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
                     <div class="fade-up flex flex-col">
-                        <div class="glass-panel rounded-2xl p-8 flex-1">
+                        <div
+                            class="glass-panel rounded-2xl p-8 flex-1 hover:border-orange-500/30 transition-all duration-300">
                             <h4 class="text-sm font-medium mb-6 flex items-center gap-2">
                                 <i data-lucide="graduation-cap" class="w-4 h-4 text-orange-500"></i>
                                 Education
@@ -988,42 +1092,55 @@
                                 <div>
                                     <h4 class="text-lg font-medium">B.Sc. in Computer Science</h4>
                                     <p class="text-sm text-orange-500 font-medium mt-1">Bishop Heber College, Trichy</p>
-                                    <p class="text-xs text-zinc-500 mt-2">I completed my undergraduate degree with a
-                                        focus on core computing principles and data structures.</p>
+                                    <p class="text-xs text-zinc-500 mt-2">I completed my Undergraduate Degree with a
+                                        focus on Core Computing Principles and Data Structures.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="fade-up flex flex-col" style="transition-delay: 0.1s">
-                        <div class="glass-panel rounded-2xl p-8 flex-1">
+                        <div
+                            class="glass-panel rounded-2xl p-8 flex-1 hover:border-orange-500/30 transition-all duration-300">
                             <h4 class="text-sm font-medium mb-6 flex items-center gap-2">
                                 <i data-lucide="heart" class="w-4 h-4 text-orange-500"></i>
                                 Soft Skills
                             </h4>
-                            <div class="grid grid-cols-2 gap-3">
-                                <div class="flex items-center gap-2 text-xs text-zinc-400">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
-                                    Analytical Thinking
+                            <div class="grid grid-cols-2 gap-4">
+                                <div
+                                    class="soft-skill-item flex items-center gap-2 text-sm text-zinc-400 cursor-default">
+                                    <div
+                                        class="w-1.5 h-1.5 rounded-full bg-orange-500 transition-transform duration-300">
+                                    </div>Analytical Thinking
                                 </div>
-                                <div class="flex items-center gap-2 text-xs text-zinc-400">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
-                                    Problem Solving
+                                <div
+                                    class="soft-skill-item flex items-center gap-2 text-sm text-zinc-400 cursor-default">
+                                    <div
+                                        class="w-1.5 h-1.5 rounded-full bg-orange-500 transition-transform duration-300">
+                                    </div>Problem Solving
                                 </div>
-                                <div class="flex items-center gap-2 text-xs text-zinc-400">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
-                                    Stakeholder Comm.
+                                <div
+                                    class="soft-skill-item flex items-center gap-2 text-sm text-zinc-400 cursor-default">
+                                    <div
+                                        class="w-1.5 h-1.5 rounded-full bg-orange-500 transition-transform duration-300">
+                                    </div>Stakeholder Comm.
                                 </div>
-                                <div class="flex items-center gap-2 text-xs text-zinc-400">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
-                                    Requirement Gathering
+                                <div
+                                    class="soft-skill-item flex items-center gap-2 text-sm text-zinc-400 cursor-default">
+                                    <div
+                                        class="w-1.5 h-1.5 rounded-full bg-orange-500 transition-transform duration-300">
+                                    </div>Requirement Gathering
                                 </div>
-                                <div class="flex items-center gap-2 text-xs text-zinc-400">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
-                                    Attention to Detail
+                                <div
+                                    class="soft-skill-item flex items-center gap-2 text-sm text-zinc-400 cursor-default">
+                                    <div
+                                        class="w-1.5 h-1.5 rounded-full bg-orange-500 transition-transform duration-300">
+                                    </div>Attention to Detail
                                 </div>
-                                <div class="flex items-center gap-2 text-xs text-zinc-400">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
-                                    Data Storytelling
+                                <div
+                                    class="soft-skill-item flex items-center gap-2 text-sm text-zinc-400 cursor-default">
+                                    <div
+                                        class="w-1.5 h-1.5 rounded-full bg-orange-500 transition-transform duration-300">
+                                    </div>Data Storytelling
                                 </div>
                             </div>
                         </div>
@@ -1037,11 +1154,11 @@
     <section id="roadmap" class="py-24 border-t border-white/5 relative">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 fade-up">
-                <span class="text-[10px] font-bold uppercase tracking-[0.1em] text-orange-500 mb-4 block">Continuous
+                <span class="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-orange-500 mb-4 block">Continuous
                     Growth</span>
-                <h2 class="text-3xl font-semibold tracking-tight">The Learning Path</h2>
-                <p class="text-zinc-500 text-sm mt-3 max-w-xl mx-auto">From analyzing business metrics to architecting
-                    distributed data systems.</p>
+                <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">The Learning Path</h2>
+                <p class="text-zinc-500 text-sm mt-3 max-w-xl mx-auto">From Analyzing Business Metrics to Architecting
+                    Distributed Data Systems.</p>
             </div>
 
             <div class="max-w-4xl mx-auto relative px-4">
@@ -1057,10 +1174,12 @@
                         </div>
                         <div class="w-4 h-4 rounded-full bg-orange-500 border-4 border-[#09090b] z-10 hidden md:block">
                         </div>
-                        <div class="md:w-[45%] glass-panel rounded-xl p-6 text-left">
-                            <p class="text-xs text-zinc-400 leading-relaxed">Mastered business intelligence, KPI
-                                definitions, and visual storytelling using Power BI, SQL, and Superset in the fintech
-                                domain.</p>
+                        <div
+                            class="md:w-[45%] glass-panel rounded-xl p-6 text-left hover:border-orange-500/30 transition-all duration-300">
+                            <p class="text-xs text-zinc-400 leading-relaxed">Mastered <span
+                                    class="text-white font-medium">Business Intelligence, KPI Definitions,</span> and
+                                <span class="text-white font-medium">Visual Storytelling</span> using Power BI, SQL, and
+                                Superset in the <span class="text-white font-medium">Fintech Domain</span>.</p>
                         </div>
                     </div>
 
@@ -1087,9 +1206,11 @@
                         </div>
                         <div class="w-4 h-4 rounded-full bg-zinc-700 border-4 border-[#09090b] z-10 hidden md:block">
                         </div>
-                        <div class="md:w-[45%] glass-panel rounded-xl p-6 text-left">
-                            <p class="text-xs text-zinc-400 leading-relaxed">Exploring MLOps, real-time data
-                                orchestration at scale, and advanced distributed systems design.</p>
+                        <div
+                            class="md:w-[45%] glass-panel rounded-xl p-6 text-left hover:border-orange-500/30 transition-all duration-300">
+                            <p class="text-xs text-zinc-400 leading-relaxed italic">"Beyond the horizon lies the
+                                synthesis of Intelligence and Infrastructure. Architecting the unseen, mastering the
+                                flow of tomorrow's Data Universe."</p>
                         </div>
                     </div>
                 </div>
@@ -1105,11 +1226,11 @@
 
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="text-center mb-16 fade-up">
-                <span class="text-[10px] font-bold uppercase tracking-[0.1em] text-orange-500 mb-4 block">Let's
+                <span class="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-orange-500 mb-4 block">Let's
                     Connect</span>
-                <h2 class="text-3xl font-semibold tracking-tight">Get in Touch</h2>
-                <p class="text-zinc-500 text-sm mt-3 max-w-md mx-auto">Open to data analyst and analytics engineering
-                    roles. Let's discuss how I can add value to your team.</p>
+                <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">Get in Touch</h2>
+                <p class="text-zinc-500 text-sm mt-3 max-w-md mx-auto">Open to Data Analyst and Data Engineering
+                    roles. Let's discuss How I can add value to your team.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
@@ -1154,96 +1275,85 @@
             <div class="max-w-2xl mx-auto fade-up">
                 <form id="contactForm" novalidate class="glass-panel rounded-2xl p-8 md:p-12 space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Name -->
-         <div class="form-field">
-            <label for="cf_name" class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 mb-2 block">
-                Name <span class="text-orange-500">*</span>
-            </label>
-            <input
-                id="cf_name"
-                name="from_name"
-                type="text"
-                autocomplete="name"
-                class="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/50 transition-colors"
-                placeholder="Your name"
-            >
-            <p class="field-error hidden text-[10px] text-red-400 mt-1 font-medium" id="err_name">Please enter your name.</p>
-        </div>
-        <!-- Email -->
-        <div class="form-field">
-            <label for="cf_email" class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 mb-2 block">
-                Email <span class="text-orange-500">*</span>
-            </label>
-            <input
-                id="cf_email"
-                name="from_email"
-                type="email"
-                autocomplete="email"
-                class="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/50 transition-colors"
-                placeholder="your@email.com"
-            >
-            <p class="field-error hidden text-[10px] text-red-400 mt-1 font-medium" id="err_email">Please enter a valid email address.</p>
-        </div>
-    </div>
-    <!-- Subject -->
-    <div class="form-field">
-        <label for="cf_subject" class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 mb-2 block">Subject</label>
-        <input
-            id="cf_subject"
-            name="subject"
-            type="text"
-            autocomplete="off"
-            class="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/50 transition-colors"
-            placeholder="What's this about?"
-        >
-    </div>
-    <!-- Message -->
-    <div class="form-field">
-        <label for="cf_message" class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 mb-2 block">
-            Message <span class="text-orange-500">*</span>
-        </label>
-        <textarea
-            id="cf_message"
-            name="message"
-            rows="5"
-            class="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/50 transition-colors resize-none"
-            placeholder="Tell me about the opportunity..."
-        ></textarea>
-        <p class="field-error hidden text-[10px] text-red-400 mt-1 font-medium" id="err_message">Please enter a message.</p>
-    </div>
-    <!-- Submit -->
-    <div class="flex justify-end">
-        <button
-            id="submitBtn"
-            type="submit"
-            class="bg-white text-[#09090b] text-xs font-bold uppercase tracking-wider px-8 py-4 hover:bg-zinc-200 transition-colors duration-150 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-            <span id="submitLabel">Send Message</span>
-            <i data-lucide="send" class="w-4 h-4" id="submitIcon"></i>
-            <svg id="submitSpinner" class="hidden animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"/>
-            </svg>
-        </button>
-    </div>
-</form>
+                        <!-- Name -->
+                        <div class="form-field">
+                            <label for="cf_name"
+                                class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 mb-2 block">
+                                Name <span class="text-orange-500">*</span>
+                            </label>
+                            <input id="cf_name" name="from_name" type="text" autocomplete="name"
+                                class="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/50 transition-colors"
+                                placeholder="Your name">
+                            <p class="field-error hidden text-[10px] text-red-400 mt-1 font-medium" id="err_name">Please
+                                enter your name.</p>
+                        </div>
+                        <!-- Email -->
+                        <div class="form-field">
+                            <label for="cf_email"
+                                class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 mb-2 block">
+                                Email <span class="text-orange-500">*</span>
+                            </label>
+                            <input id="cf_email" name="from_email" type="email" autocomplete="email"
+                                class="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/50 transition-colors"
+                                placeholder="your@email.com">
+                            <p class="field-error hidden text-[10px] text-red-400 mt-1 font-medium" id="err_email">
+                                Please enter a valid email address.</p>
+                        </div>
+                    </div>
+                    <!-- Subject -->
+                    <div class="form-field">
+                        <label for="cf_subject"
+                            class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 mb-2 block">Subject</label>
+                        <input id="cf_subject" name="subject" type="text" autocomplete="off"
+                            class="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/50 transition-colors"
+                            placeholder="What's this about?">
+                    </div>
+                    <!-- Message -->
+                    <div class="form-field">
+                        <label for="cf_message"
+                            class="text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-500 mb-2 block">
+                            Message <span class="text-orange-500">*</span>
+                        </label>
+                        <textarea id="cf_message" name="message" rows="5"
+                            class="w-full bg-zinc-900/50 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-orange-500/50 transition-colors resize-none"
+                            placeholder="Tell me about the opportunity..."></textarea>
+                        <p class="field-error hidden text-[10px] text-red-400 mt-1 font-medium" id="err_message">Please
+                            enter a message.</p>
+                    </div>
+                    <!-- Submit -->
+                    <div class="flex justify-end">
+                        <button id="submitBtn" type="submit"
+                            class="bg-white text-[#09090b] text-xs font-bold uppercase tracking-wider px-8 py-4 hover:bg-zinc-200 transition-colors duration-150 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <span id="submitLabel">Send Message</span>
+                            <i data-lucide="send" class="w-4 h-4" id="submitIcon"></i>
+                            <svg id="submitSpinner" class="hidden animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                                    stroke-width="4" />
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                            </svg>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Modal -->
-<div id="successModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 items-center justify-center p-4" style="display:none;">
-    <div class="bg-zinc-900 border border-orange-500/30 rounded-2xl p-8 max-w-sm w-full shadow-2xl" style="box-shadow: 0 0 40px rgba(249,115,22,0.15); animation: modalSlideIn 0.3s ease-out;">
-        <div class="flex justify-center mb-4">
-            <div id="modalIcon" class="w-16 h-16 rounded-full flex items-center justify-center border"></div>
+    <div id="successModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 items-center justify-center p-4"
+        style="display:none;">
+        <div class="bg-zinc-900 border border-orange-500/30 rounded-2xl p-8 max-w-sm w-full shadow-2xl"
+            style="box-shadow: 0 0 40px rgba(249,115,22,0.15); animation: modalSlideIn 0.3s ease-out;">
+            <div class="flex justify-center mb-4">
+                <div id="modalIcon" class="w-16 h-16 rounded-full flex items-center justify-center border"></div>
+            </div>
+            <h3 id="modalTitle" class="text-lg font-semibold text-center mb-2"></h3>
+            <p id="modalMsg" class="text-sm text-zinc-400 text-center mb-6"></p>
+            <button type="button" id="modalClose"
+                class="w-full font-medium py-3 rounded-lg transition-colors duration-200 text-white bg-orange-500 hover:bg-orange-600">
+                Close
+            </button>
         </div>
-        <h3 id="modalTitle" class="text-lg font-semibold text-center mb-2"></h3>
-        <p id="modalMsg" class="text-sm text-zinc-400 text-center mb-6"></p>
-        <button type="button" id="modalClose" class="w-full font-medium py-3 rounded-lg transition-colors duration-200 text-white bg-orange-500 hover:bg-orange-600">
-            Close
-        </button>
     </div>
-</div>
 
     <style>
         @keyframes modalSlideIn {
@@ -1251,28 +1361,50 @@
                 opacity: 0;
                 transform: scale(0.95) translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: scale(1) translateY(0);
             }
         }
+
         @keyframes formShake {
-            0%, 100% { transform: translateX(0); }
-            20%       { transform: translateX(-6px); }
-            40%       { transform: translateX(6px); }
-            60%       { transform: translateX(-4px); }
-            80%       { transform: translateX(4px); }
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            20% {
+                transform: translateX(-6px);
+            }
+
+            40% {
+                transform: translateX(6px);
+            }
+
+            60% {
+                transform: translateX(-4px);
+            }
+
+            80% {
+                transform: translateX(4px);
+            }
         }
 
-        .form-shake { animation: formShake 0.4s ease; }
-        .form-input-error { border-color: rgba(239, 68, 68, 0.4) !important; }
+        .form-shake {
+            animation: formShake 0.4s ease;
+        }
+
+        .form-input-error {
+            border-color: rgba(239, 68, 68, 0.4) !important;
+        }
     </style>
 
     <!-- FOOTER -->
     <footer class="border-t border-white/5 py-12">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="flex flex-col items-center gap-6 md:flex-row md:justify-between">
-
+        <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col items-center gap-8 md:flex-row md:justify-between">
             <!-- Logo + Name -->
             <div class="flex items-center gap-3">
                 <div class="w-9 h-9 bg-white rounded flex items-center justify-center flex-shrink-0">
@@ -1281,8 +1413,11 @@
                 <span class="text-sm font-bold tracking-tight whitespace-nowrap">Sarjun | <span class="text-zinc-500 font-normal">A Data Enthusiast</span></span>
             </div>
 
-            <!-- Copyright -->
-            <span class="text-xs text-zinc-500 text-center">© 2026 Mohamed Sarjun J. All rights reserved.</span>
+            <!-- Copyright - Centered -->
+            <div class="text-center space-y-1 py-4 md:py-0">
+                <span class="text-[10px] md:text-xs text-zinc-500 block">© 2026 Mohamed Sarjun J. All rights reserved.</span>
+                <span class="text-[9px] md:text-[10px] text-zinc-600 uppercase tracking-widest block">Trademark & Intellectual Property of Mohamed Sarjun J</span>
+            </div>
 
             <!-- Social Icons -->
             <div class="flex items-center gap-6">
@@ -1299,8 +1434,8 @@
                     </svg>
                 </a>
             </div>
+            </div>
         </div>
-     </div>
     </footer>
 
     <!-- Back to Top -->
@@ -1310,239 +1445,239 @@
     </button>
 
     <script>
-// ── Icons ──────────────────────────────────────────────────────────────────
-lucide.createIcons();
+        // ── Icons ──────────────────────────────────────────────────────────────────
+        lucide.createIcons();
 
-// ── Mobile Menu ────────────────────────────────────────────────────────────
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const mobileMenu    = document.getElementById('mobileMenu');
-let menuOpen = false;
+        // ── Mobile Menu ────────────────────────────────────────────────────────────
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let menuOpen = false;
 
-function setMenu(open) {
-    menuOpen = open;
-    mobileMenu.classList.toggle('hidden', !open);
-    mobileMenuBtn.setAttribute('aria-expanded', String(open));
-}
-mobileMenuBtn.addEventListener('click', () => setMenu(!menuOpen));
-document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => setMenu(false)));
-window.addEventListener('resize', () => { if (window.innerWidth >= 768) setMenu(false); });
+        function setMenu(open) {
+            menuOpen = open;
+            mobileMenu.classList.toggle('hidden', !open);
+            mobileMenuBtn.setAttribute('aria-expanded', String(open));
+        }
+        mobileMenuBtn.addEventListener('click', () => setMenu(!menuOpen));
+        document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => setMenu(false)));
+        window.addEventListener('resize', () => { if (window.innerWidth >= 768) setMenu(false); });
 
-// ── Scroll Animations ──────────────────────────────────────────────────────
-const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
-            setTimeout(() => { bar.style.width = bar.dataset.width; }, 200);
-        });
-        entry.target.querySelectorAll('.stat-counter').forEach(animateCounter);
-    });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
-
-function animateCounter(el) {
-    if (el.dataset.animated) return;
-    el.dataset.animated = '1';
-    const target = parseInt(el.dataset.target);
-    const suffix = el.dataset.suffix || '';
-    const start  = performance.now();
-    const dur    = 1500;
-    (function tick(now) {
-        const p = Math.min((now - start) / dur, 1);
-        el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target) + suffix;
-        if (p < 1) requestAnimationFrame(tick);
-    })(start);
-}
-
-// ── Skill Tabs ─────────────────────────────────────────────────────────────
-document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.querySelectorAll('.tab-panel').forEach(p => {
-            const show = p.dataset.panel === btn.dataset.tab;
-            p.classList.toggle('hidden', !show);
-            if (show) {
-                p.querySelectorAll('.skill-bar-fill').forEach(bar => {
-                    bar.style.width = '0%';
-                    setTimeout(() => { bar.style.width = bar.dataset.width; }, 100);
+        // ── Scroll Animations ──────────────────────────────────────────────────────
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+                    setTimeout(() => { bar.style.width = bar.dataset.width; }, 200);
                 });
-            }
+                entry.target.querySelectorAll('.stat-counter').forEach(animateCounter);
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+        function animateCounter(el) {
+            if (el.dataset.animated) return;
+            el.dataset.animated = '1';
+            const target = parseInt(el.dataset.target);
+            const suffix = el.dataset.suffix || '';
+            const start = performance.now();
+            const dur = 1500;
+            (function tick(now) {
+                const p = Math.min((now - start) / dur, 1);
+                el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target) + suffix;
+                if (p < 1) requestAnimationFrame(tick);
+            })(start);
+        }
+
+        // ── Skill Tabs ─────────────────────────────────────────────────────────────
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelectorAll('.tab-panel').forEach(p => {
+                    const show = p.dataset.panel === btn.dataset.tab;
+                    p.classList.toggle('hidden', !show);
+                    if (show) {
+                        p.querySelectorAll('.skill-bar-fill').forEach(bar => {
+                            bar.style.width = '0%';
+                            setTimeout(() => { bar.style.width = bar.dataset.width; }, 100);
+                        });
+                    }
+                });
+            });
         });
-    });
-});
 
-// ── Active Nav on Scroll ───────────────────────────────────────────────────
-const sections = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('.nav-link');
+        // ── Active Nav on Scroll ───────────────────────────────────────────────────
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
 
-window.addEventListener('scroll', () => {
-    let cur = '';
-    sections.forEach(s => { if (scrollY >= s.offsetTop - 100) cur = s.id; });
-    navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+        window.addEventListener('scroll', () => {
+            let cur = '';
+            sections.forEach(s => { if (scrollY >= s.offsetTop - 100) cur = s.id; });
+            navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
 
-    // Back to top
-    const btn = document.getElementById('backToTop');
-    const show = scrollY > 600;
-    btn.classList.toggle('opacity-0',          !show);
-    btn.classList.toggle('pointer-events-none', !show);
-    btn.classList.toggle('opacity-100',          show);
-    btn.classList.toggle('pointer-events-auto',  show);
-});
+            // Back to top
+            const btn = document.getElementById('backToTop');
+            const show = scrollY > 600;
+            btn.classList.toggle('opacity-0', !show);
+            btn.classList.toggle('pointer-events-none', !show);
+            btn.classList.toggle('opacity-100', show);
+            btn.classList.toggle('pointer-events-auto', show);
+        });
 
-document.getElementById('backToTop').addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
-// ── Navbar border ──────────────────────────────────────────────────────────
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-    navbar.style.borderBottomColor = scrollY > 50
-        ? 'rgba(255,255,255,0.08)'
-        : 'rgba(255,255,255,0.05)';
-});
+        // ── Navbar border ──────────────────────────────────────────────────────────
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.style.borderBottomColor = scrollY > 50
+                ? 'rgba(255,255,255,0.08)'
+                : 'rgba(255,255,255,0.05)';
+        });
 
-// ── EmailJS Setup ──────────────────────────────────────────────────────────
-const EJ = {
-    svc: 'service_gqn0pxo',
-    tpl: 'template_pbkmjfg',
-    key: 'WkUSYlRDklHfVUAoJ'
-};
-emailjs.init(EJ.key);
+        // ── EmailJS Setup ──────────────────────────────────────────────────────────
+        const EJ = {
+            svc: 'service_gqn0pxo',
+            tpl: 'template_pbkmjfg',
+            key: 'WkUSYlRDklHfVUAoJ'
+        };
+        emailjs.init(EJ.key);
 
-// ── Modal Helpers ──────────────────────────────────────────────────────────
-function showModal(type, title, msg) {
-    const modal    = document.getElementById('successModal');
-    const iconEl   = document.getElementById('modalIcon');
-    const titleEl  = document.getElementById('modalTitle');
-    const msgEl    = document.getElementById('modalMsg');
-    const closeBtn = document.getElementById('modalClose');
+        // ── Modal Helpers ──────────────────────────────────────────────────────────
+        function showModal(type, title, msg) {
+            const modal = document.getElementById('successModal');
+            const iconEl = document.getElementById('modalIcon');
+            const titleEl = document.getElementById('modalTitle');
+            const msgEl = document.getElementById('modalMsg');
+            const closeBtn = document.getElementById('modalClose');
 
-    if (type === 'success') {
-        iconEl.className = 'w-16 h-16 rounded-full flex items-center justify-center border bg-orange-500/10 border-orange-500/30';
-        iconEl.innerHTML = `<svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            if (type === 'success') {
+                iconEl.className = 'w-16 h-16 rounded-full flex items-center justify-center border bg-orange-500/10 border-orange-500/30';
+                iconEl.innerHTML = `<svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
         </svg>`;
-        closeBtn.className = 'w-full font-medium py-3 rounded-lg transition-colors duration-200 text-white bg-orange-500 hover:bg-orange-600';
-        titleEl.style.color = '';
-    } else {
-        iconEl.className = 'w-16 h-16 rounded-full flex items-center justify-center border bg-red-500/10 border-red-500/30';
-        iconEl.innerHTML = `<svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                closeBtn.className = 'w-full font-medium py-3 rounded-lg transition-colors duration-200 text-white bg-orange-500 hover:bg-orange-600';
+                titleEl.style.color = '';
+            } else {
+                iconEl.className = 'w-16 h-16 rounded-full flex items-center justify-center border bg-red-500/10 border-red-500/30';
+                iconEl.innerHTML = `<svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
         </svg>`;
-        closeBtn.className = 'w-full font-medium py-3 rounded-lg transition-colors duration-200 text-white bg-red-500 hover:bg-red-600';
-        titleEl.style.color = '#f87171';
-    }
+                closeBtn.className = 'w-full font-medium py-3 rounded-lg transition-colors duration-200 text-white bg-red-500 hover:bg-red-600';
+                titleEl.style.color = '#f87171';
+            }
 
-    titleEl.textContent = title;
-    msgEl.textContent   = msg;
-    modal.style.display = 'flex';
-}
+            titleEl.textContent = title;
+            msgEl.textContent = msg;
+            modal.style.display = 'flex';
+        }
 
-function hideModal() {
-    document.getElementById('successModal').style.display = 'none';
-}
+        function hideModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
 
-document.getElementById('modalClose').addEventListener('click', hideModal);
-document.getElementById('successModal').addEventListener('click', e => {
-    if (e.target.id === 'successModal') hideModal();
-});
+        document.getElementById('modalClose').addEventListener('click', hideModal);
+        document.getElementById('successModal').addEventListener('click', e => {
+            if (e.target.id === 'successModal') hideModal();
+        });
 
-// ── Form Validation ────────────────────────────────────────────────────────
-function setFieldError(inputId, errId, hasError) {
-    const input = document.getElementById(inputId);
-    const err   = document.getElementById(errId);
-    if (hasError) {
-        input.classList.add('form-input-error');
-        err.classList.remove('hidden');
-    } else {
-        input.classList.remove('form-input-error');
-        err.classList.add('hidden');
-    }
-}
+        // ── Form Validation ────────────────────────────────────────────────────────
+        function setFieldError(inputId, errId, hasError) {
+            const input = document.getElementById(inputId);
+            const err = document.getElementById(errId);
+            if (hasError) {
+                input.classList.add('form-input-error');
+                err.classList.remove('hidden');
+            } else {
+                input.classList.remove('form-input-error');
+                err.classList.add('hidden');
+            }
+        }
 
-function validateEmail(val) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim());
-}
+        function validateEmail(val) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim());
+        }
 
-function validateForm() {
-    let ok = true;
+        function validateForm() {
+            let ok = true;
 
-    const name = document.getElementById('cf_name').value.trim();
-    if (!name) { setFieldError('cf_name', 'err_name', true);  ok = false; }
-    else        { setFieldError('cf_name', 'err_name', false); }
+            const name = document.getElementById('cf_name').value.trim();
+            if (!name) { setFieldError('cf_name', 'err_name', true); ok = false; }
+            else { setFieldError('cf_name', 'err_name', false); }
 
-    const email = document.getElementById('cf_email').value.trim();
-    if (!validateEmail(email)) { setFieldError('cf_email', 'err_email', true);  ok = false; }
-    else                        { setFieldError('cf_email', 'err_email', false); }
+            const email = document.getElementById('cf_email').value.trim();
+            if (!validateEmail(email)) { setFieldError('cf_email', 'err_email', true); ok = false; }
+            else { setFieldError('cf_email', 'err_email', false); }
 
-    const message = document.getElementById('cf_message').value.trim();
-    if (!message) { setFieldError('cf_message', 'err_message', true);  ok = false; }
-    else           { setFieldError('cf_message', 'err_message', false); }
+            const message = document.getElementById('cf_message').value.trim();
+            if (!message) { setFieldError('cf_message', 'err_message', true); ok = false; }
+            else { setFieldError('cf_message', 'err_message', false); }
 
-    return ok;
-}
+            return ok;
+        }
 
-// Clear errors on typing
-[
-    { input: 'cf_name',    err: 'err_name'    },
-    { input: 'cf_email',   err: 'err_email'   },
-    { input: 'cf_message', err: 'err_message' },
-].forEach(({ input, err }) => {
-    document.getElementById(input).addEventListener('input', () => {
-        setFieldError(input, err, false);
-    });
-});
+        // Clear errors on typing
+        [
+            { input: 'cf_name', err: 'err_name' },
+            { input: 'cf_email', err: 'err_email' },
+            { input: 'cf_message', err: 'err_message' },
+        ].forEach(({ input, err }) => {
+            document.getElementById(input).addEventListener('input', () => {
+                setFieldError(input, err, false);
+            });
+        });
 
-// ── Form Submit ────────────────────────────────────────────────────────────
-document.getElementById('contactForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
+        // ── Form Submit ────────────────────────────────────────────────────────────
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-    if (!validateForm()) {
-        const form = e.target;
-        form.classList.add('shake');
-        form.addEventListener('animationend', () => form.classList.remove('shake'), { once: true });
-        return;
-    }
+            if (!validateForm()) {
+                const form = e.target;
+                form.classList.add('shake');
+                form.addEventListener('animationend', () => form.classList.remove('shake'), { once: true });
+                return;
+            }
 
-    const btn     = document.getElementById('submitBtn');
-    const label   = document.getElementById('submitLabel');
-    const icon    = document.getElementById('submitIcon');
-    const spinner = document.getElementById('submitSpinner');
+            const btn = document.getElementById('submitBtn');
+            const label = document.getElementById('submitLabel');
+            const icon = document.getElementById('submitIcon');
+            const spinner = document.getElementById('submitSpinner');
 
-    // Loading state
-    btn.disabled = true;
-    label.textContent = 'Sending…';
-    icon.classList.add('hidden');
-    spinner.classList.remove('hidden');
+            // Loading state
+            btn.disabled = true;
+            label.textContent = 'Sending…';
+            icon.classList.add('hidden');
+            spinner.classList.remove('hidden');
 
-    // Build params from IDs — reliable on all devices
-    const params = {
-        from_name:  document.getElementById('cf_name').value.trim(),
-        from_email: document.getElementById('cf_email').value.trim(),
-        subject:    document.getElementById('cf_subject').value.trim() || '(no subject)',
-        message:    document.getElementById('cf_message').value.trim(),
-    };
+            // Build params from IDs — reliable on all devices
+            const params = {
+                from_name: document.getElementById('cf_name').value.trim(),
+                from_email: document.getElementById('cf_email').value.trim(),
+                subject: document.getElementById('cf_subject').value.trim() || '(no subject)',
+                message: document.getElementById('cf_message').value.trim(),
+            };
 
-    try {
-        await emailjs.send(EJ.svc, EJ.tpl, params);
-        showModal('success', 'Message Sent!', "Thank you for reaching out. I'll get back to you as soon as possible.");
-        e.target.reset();
-        setTimeout(hideModal, 6000);
-    } catch (err) {
-        console.error('EmailJS error:', err);
-        const detail = err?.text || err?.message || 'Unknown error';
-        showModal('error', 'Failed to Send',
-            `Something went wrong (${detail}). Please email me directly at sarjunmd1204@gmail.com`);
-    } finally {
-        btn.disabled = false;
-        label.textContent = 'Send Message';
-        icon.classList.remove('hidden');
-        spinner.classList.add('hidden');
-    }
-});
-</script>
+            try {
+                await emailjs.send(EJ.svc, EJ.tpl, params);
+                showModal('success', 'Message Sent!', "Thank you for reaching out. I'll get back to you as soon as possible.");
+                e.target.reset();
+                setTimeout(hideModal, 6000);
+            } catch (err) {
+                console.error('EmailJS error:', err);
+                const detail = err?.text || err?.message || 'Unknown error';
+                showModal('error', 'Failed to Send',
+                    `Something went wrong (${detail}). Please email me directly at sarjunmd1204@gmail.com`);
+            } finally {
+                btn.disabled = false;
+                label.textContent = 'Send Message';
+                icon.classList.remove('hidden');
+                spinner.classList.add('hidden');
+            }
+        });
+    </script>
 </body>
 
 </html>
